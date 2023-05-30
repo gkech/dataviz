@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nobel Prize Visualization</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <h1>Nobel Prize Visualization</h1>
+  
+  <div id="scatterplot"></div>
+  <div id="barchart"></div>
+
+  <script>
+    // Sample data
+    const data = [
+      { name: "John Doe", gender: "Male", age: 50, year: 1998 },
+      { name: "Jane Smith", gender: "Female", age: 42, year: 1999 },
+      { name: "Jane Smith", gender: "Male", age: 12, year: 1955 },
+      { name: "John Smith", gender: "Female", age: 32, year: 1902 },
+      { name: "George Smith", gender: "Male", age: 55, year: 2012 },
+      { name: "Carle Smith", gender: "Male", age: 42, year: 2005 },
+      { name: "Jane Smith", gender: "Female", age: 89, year: 1925 },
+      { name: "Jane Smith", gender: "Female", age: 42, year: 1998 },
+      { name: "Jane Smith", gender: "Female", age: 57, year: 2002 },
+      // Add more data entries here...
+    ];
+
+    // Scatter plot
+    const scatterplot = d3.select("#scatterplot");
+
+    const scatterWidth = 600;
+    const scatterHeight = 400;
+    const scatterMargin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const scatterInnerWidth = scatterWidth - scatterMargin.left - scatterMargin.right;
+    const scatterInnerHeight = scatterHeight - scatterMargin.top - scatterMargin.bottom;
+
+    const scatterSvg = scatterplot
+      .append("svg")
+      .attr("width", scatterWidth)
+      .attr("height", scatterHeight);
+
+    const scatterXScale = d3
+      .scaleLinear()
+      .domain([d3.min(data, d => d.year), d3.max(data, d => d.year)])
+      .range([scatterMargin.left, scatterInnerWidth]);
+
+    const scatterYScale = d3
+      .scaleLinear()
+      .domain([d3.min(data, d => d.age), d3.max(data, d => d.age)])
+      .range([scatterInnerHeight, scatterMargin.top]);
+
+    const scatterXAxis = d3.axisBottom(scatterXScale);
+    const scatterYAxis = d3.axisLeft(scatterYScale);
+
+    scatterSvg
+      .append("g")
+      .attr("transform", `translate(0, ${scatterInnerHeight})`)
+      .call(scatterXAxis);
+
+    scatterSvg
+      .append("g")
+      .attr("transform", `translate(${scatterMargin.left}, 0)`)
+      .call(scatterYAxis);
+
+    scatterSvg
+      .selectAll("circle")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", d => scatterXScale(d.year))
+      .attr("cy", d => scatterYScale(d.age))
+      .attr("r", 5)
+      .style("fill", "steelblue");
+
+    // Bar chart
+    const barchart = d3.select("#barchart");
+
+    const barWidth = 200;
+    const barHeight = 200;
+    const barMargin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const barInnerWidth = barWidth - barMargin.left - barMargin.right;
+    const barInnerHeight = barHeight - barMargin.top - barMargin.bottom;
+
+    const barSvg = barchart
+      .append("svg")
+      .attr("width", barWidth)
+      .attr("height", barHeight);
+
+    const genderCounts = d3.rollup(data, v => v.length, d => d.gender);
+    const genderData = Array.from(genderCounts, ([gender, count]) => ({ gender, count }));
+
+    const barXScale = d3
+      .scaleBand()
+      .domain(genderData.map(d => d.gender))
+      .range([barMargin.left, barInnerWidth])
+      .padding(0.1);
+
+    const barYScale = d3
+      .scaleLinear()
+      .domain([0, d3.max(genderData, d => d.count)])
+      .range([barInnerHeight, barMargin.top]);
+
+    const barXAxis = d3.axisBottom(barXScale);
+    const barYAxis = d3.axisLeft(barYScale);
+
+    barSvg
+      .append("g")
+      .attr("transform", `translate(0, ${barInnerHeight})`)
+      .call(barXAxis);
+
+    barSvg
+      .append("g")
+      .attr("transform", `translate(${barMargin.left}, 0)`)
+      .call(barYAxis);
+
+    barSvg
+      .selectAll("rect")
+      .data(genderData)
+      .enter()
+      .append("rect")
+      .attr("x", d => barXScale(d.gender))
+      .attr("y", d => barYScale(d.count))
+      .attr("width", barXScale.bandwidth())
+      .attr("height", d => barInnerHeight - barYScale(d.count))
+      .attr("fill", "steelblue");
+  </script>
+</body>
+</html>
