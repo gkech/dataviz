@@ -1,0 +1,7 @@
+.navbar-nav .nav-item:hover .nav-link {
+    color: red;
+  }
+  
+.navbar-custom {
+background-color: #4c9053; /* Set your desired background color here */
+}
