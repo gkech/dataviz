@@ -10,3 +10,22 @@
     justify-content: center;
     align-items: center;
 }
+
+.country:hover{
+    fill: #F1E5AC;
+
+}
+
+.tooltip {
+            position: absolute;
+            display: none;
+            background-color: #2456;
+            color: #fff;
+            padding: 2px;
+            font-size: 12px;
+            font-family:Segoe UI;
+        }
+
+svg {
+  background: #116c70 /*#008a91*/ ;
+}
