@@ -27,7 +27,7 @@
       .scaleLinear()
       .domain(d3.extent(data, function (d) { return d.prize_year; }))
       .range([0, width]);
-      
+
     svg
       .append("g")
       .attr("transform", "translate(0," + height + ")")
@@ -86,6 +86,7 @@
        tooltip
          .html(
            "Nobel Prize Category: " + d.category  + "<br>" +
+           "Paper DOI: " + d.doi  + "<br>" +
            "Prize Laureate: " + d.laureate_name + "<br>" +
            "Years to Win: " + d.years_to_win  + "<br>" +
            "Publication Year: " + d.pub_year  + "<br>" +
