@@ -22,15 +22,17 @@
        d.years_to_win = d.prize_year - d.pub_year;
      });
 
-     // Add X axis
-     var x = d3
-       .scaleLinear()
-       .domain(d3.extent(data, function (d) { return d.prize_year; }))
-       .range([0, width]);
-     svg
-       .append("g")
-       .attr("transform", "translate(0," + height + ")")
-       .call(d3.axisBottom(x));
+    // Add X axis
+    var x = d3
+      .scaleLinear()
+      .domain(d3.extent(data, function (d) { return d.prize_year; }))
+      .range([0, width]);
+      
+    svg
+      .append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x)
+      .tickFormat(d3.format("d")));
 
        // Add X axis label
       svg
