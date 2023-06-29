@@ -57,7 +57,6 @@ function visualizeMap(valueToFilter){
                             countrySize[row.iso_n3] = row;
                         });
                     }else {
-                        console.log("2:" +result);
                         topoJsonData.objects.countries.geometries.forEach(d => {
                         countrySize[d.id] = d;
                         });
