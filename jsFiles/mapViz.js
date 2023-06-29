@@ -10,7 +10,7 @@ function visualizeMap(valueToFilter){
 
     console.log("result"+result);
 
-    const svg = d3.select('body').append('svg').attr('width', width).attr('height', height);
+    const svg = d3.select('body').append('svg').attr('width', width).attr('height', height).attr("class", "dim-svg");;
     const tooltip = d3.select('body').append('div')
       .attr('class', 'tooltip')
       .style('display', 'none');

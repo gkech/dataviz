@@ -1,0 +1,10 @@
+laureate_id,laureate_name,prize_year,title,pub_year,paper_id,doi,journal,affiliation,is_prize_winning_paper,category
+20001,"stoddart, j",2016,a molecular shuttle,1991,1976038872,10.1021/ja00013a096,journal of the american chemical society,northwestern university,YES,chemistry
+30001,"ohsumi, y",2016,isolation and characterization of autophagy defective mutants of saccharomyces cerevisiae,1993,2011580247,10.1016/0014-5793(93)80398-E,febs letters,tokyo institute of technology,YES,medicine
+30107,von euler us,1970,evidence for the presence of noradrenaline in submicroscopic structures of adrenergic axons,1956,2030670408,10.1038/177044b0,nature,NA,YES,medicine
+10001,"thouless, dj",2016,ordering metastability and phase transitions in two dimensional systems,1973,2086860422,10.1088/0022-3719/6/7/010,journal of physics c solid state physics,university of washington,YES,physics
+10047,"thooft, g",1999,regularization and renormalization of gauge fields,1972,2125707848,10.1016/0550-3213(72)90279-9,nuclear physics,utrecht university,YES,physics
+10049,"tsui, dc",1998,two dimensional magnetotransport in the extreme quantum limit,1982,2006294391,10.1103/PhysRevLett.48.1559,physical review letters,princeton university,YES,physics
+10058,"reines, f",1995,detection of the free neutrino,1953,2246644974,10.1103/PhysRev.92.830,physical review,university of california irvine,YES,physics
+20109,"kendrew, j",1962,a three dimensional model of the myoglobin molecule obtained by x ray analysis,1958,1985854865,10.1038/181662a0,nature,medical research council,YES,chemistry
+20109,"kendrew, j",1962,structure of myoglobin a three dimensional fourier synthesis at 2 a resolution,1960,2004436328,10.1038/185422a0,nature,NA,YES,chemistry

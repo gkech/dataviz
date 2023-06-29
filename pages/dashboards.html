@@ -6,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>is Nobel Prize easy to win?</title>
 
+      <script src="https://d3js.org/d3.v7.min.js"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="../css/navbar.css" />
     <link rel="stylesheet" href="../css/test.css" />
+    <link rel="stylesheet" href="../css/years2win.css" />
 
     <!-- Icon -->
     <link rel="icon" href="../images/nobel-icon.png" type="image/x-icon">
@@ -64,6 +67,11 @@
             <h1 class="text-center">Dashboards</h1>
             <p class="text-center">
               Here are some D3 diagrams...
+              <div class="d-flex justify-content-center">
+                <div id="my_dataviz"></div>
+                <div id="legend"></div>
+                <script src="years2win/script.js"></script>
+              </div> 
             </p>
           </div>        
         <div class="h-100 d-flex align-items-center justify-content-center text-center mb-5 mt-5">
