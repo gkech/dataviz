@@ -1,0 +1,24 @@
+.y2w-legend {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+
+.y2w-legend-title {
+font-weight: bold;
+margin-bottom: 5px;
+}
+
+.y2w-legend-item {
+display: flex;
+align-items: center;
+margin-bottom: 3px;
+}
+
+.y2w-legend-color {
+width: 15px;
+height: 15px;
+margin-right: 5px;
+}
