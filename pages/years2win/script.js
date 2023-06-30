@@ -140,6 +140,42 @@ d3.csv("../pages/years2win/data.csv")
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave);
 
+      d3.select("#category-filter").on("change", function() {
+        var selectedCategory = this.value.toLowerCase();
+        filterData(selectedCategory);
+      });
+
+      function filterData(category) {
+        var filteredData = (category === "all") ? data : data.filter(function(d) {
+          return d.category === category;
+        });
+      
+        console.log(filteredData);
+
+        svg.selectAll("circle").remove();
+      
+        svg
+        .selectAll("dot")
+        .data(filteredData)
+        .enter()
+        .append("circle")
+        .attr("cx", function (d) {
+          return x(d.prize_year);
+        })
+        .attr("cy", function (d) {
+          return y(d.years_to_win);
+        })
+        .attr("r", 9)
+        .style("fill", function (d) {
+          return colorScale(d.category);
+        })
+        .style("opacity", 0.6)
+        .style("stroke", "none")
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave);
+      }
+      
     // Create color legend
     var legendContainer = d3.select("#legend");
     var categories = Array.from(
