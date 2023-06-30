@@ -82,7 +82,7 @@ d3.csv("../pages/years2win/data.csv")
 
     // Handle mouseover event
     var mouseover = function (d) {
-      tooltip.transition().duration(200).style("opacity", 1);
+      tooltip.transition().duration(1).style("opacity", 1);
       d3.select(this).style("stroke", "black").style("opacity", 1);
     };
 
@@ -93,7 +93,7 @@ d3.csv("../pages/years2win/data.csv")
           "Nobel Prize Category: " +
             d.category +
             "<br>" +
-            "Paper DOI: " +
+            "Prize Winning Paper DOI: " +
             d.doi +
             "<br>" +
             "Prize Laureate: " +
@@ -115,7 +115,7 @@ d3.csv("../pages/years2win/data.csv")
 
     // Handle mouseleave event
     var mouseleave = function (event, d) {
-      tooltip.transition().duration(200).style("opacity", 0);
+      tooltip.transition().duration(1).style("opacity", 0);
       d3.select(this).style("stroke", "none").style("opacity", 0.6);
     };
 
