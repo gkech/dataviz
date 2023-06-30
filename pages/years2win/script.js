@@ -83,7 +83,7 @@ d3.csv("../pages/years2win/data.csv")
     // Handle mouseover event
     var mouseover = function (d) {
       tooltip.transition().duration(1).style("opacity", 1);
-      d3.select(this).style("stroke", "black").style("opacity", 1);
+      d3.select(this).style("stroke", "red").style("stroke-width", 4).style("opacity", 1);
     };
 
     // Handle mousemove event
@@ -116,7 +116,7 @@ d3.csv("../pages/years2win/data.csv")
     // Handle mouseleave event
     var mouseleave = function (event, d) {
       tooltip.transition().duration(1).style("opacity", 0);
-      d3.select(this).style("stroke", "none").style("opacity", 0.6);
+      d3.select(this).style("stroke", "grey").style("stroke-width", 1).style("opacity", 1);
     };
 
     svg
@@ -134,8 +134,8 @@ d3.csv("../pages/years2win/data.csv")
       .style("fill", function (d) {
         return colorScale(d.category);
       })
-      .style("opacity", 0.6)
-      .style("stroke", "none")
+      .style("opacity", 1)
+      .style("stroke", "grey")
       .on("mouseover", mouseover)
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave);
@@ -170,8 +170,8 @@ d3.csv("../pages/years2win/data.csv")
         .style("fill", function (d) {
           return colorScale(d.category);
         })
-        .style("opacity", 0.6)
-        .style("stroke", "none")
+        .style("opacity", 1)
+        .style("stroke", "grey")
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave);
