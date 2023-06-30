@@ -140,21 +140,24 @@ d3.csv("../pages/years2win/data.csv")
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave);
 
-      d3.select("#category-filter").on("change", function() {
-        var selectedCategory = this.value.toLowerCase();
-        filterData(selectedCategory);
-      });
+    d3.select("#category-filter").on("change", function () {
+      var selectedCategory = this.value.toLowerCase();
+      filterData(selectedCategory);
+    });
 
-      function filterData(category) {
-        var filteredData = (category === "all") ? data : data.filter(function(d) {
-          return d.category === category;
-        });
-      
-        console.log(filteredData);
+    function filterData(category) {
+      var filteredData =
+        category === "all"
+          ? data
+          : data.filter(function (d) {
+              return d.category === category;
+            });
 
-        svg.selectAll("circle").remove();
-      
-        svg
+      console.log(filteredData);
+
+      svg.selectAll("circle").remove();
+
+      svg
         .selectAll("dot")
         .data(filteredData)
         .enter()
@@ -174,14 +177,14 @@ d3.csv("../pages/years2win/data.csv")
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave);
-      }
-      
+    }
+
     // Create color legend
     var legendContainer = d3.select("#legend");
     var categories = Array.from(
       new Set(
         data.map(function (d) {
-          return d.category;
+          return d.catego;
         })
       )
     );
