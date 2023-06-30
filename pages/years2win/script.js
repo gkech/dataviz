@@ -184,7 +184,7 @@ d3.csv("../pages/years2win/data.csv")
     var categories = Array.from(
       new Set(
         data.map(function (d) {
-          return d.catego;
+          return d.category;
         })
       )
     );
