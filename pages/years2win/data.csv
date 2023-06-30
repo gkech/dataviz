@@ -177,7 +177,6 @@ laureate_id,laureate_name,prize_year,title,pub_year,paper_id,doi,journal,affilia
 20111,"calvin, m",1961,the path of carbon in photosynthesis v paper chromatography and radioautography of the products,1950,1988811508,10.1021/ja01160a080,journal of the american chemical society,NA,YES,chemistry
 20112,"libby, w",1960,age determination by radiocarbon content world wide assay of natural radiocarbon,1949,2013668561,10.1126/science.109.2827.227,science,NA,YES,chemistry
 20113,"heyrovsky, j",1959,the processes at the mercury dropping cathode part i the deposition of metals,1924,2160441152,10.1039/TF9241900692,transactions of the faraday society,NA,YES,chemistry
-20113,"heyrovsky, j",1959,researches with the dropping mercury cathode part ii the polarograph,2010,2067877546,10.1002/recl.19250440606,recueil des travaux chimiques des pays bas,NA,YES,chemistry
 20114,"sanger, f",1958,the free amino groups of insulin,1945,1918431092,10.1042/bj0390507,biochemical journal,laboratory of molecular biology,YES,chemistry
 20114,"sanger, f",1958,the disulphide bonds of insulin,1955,2414829511,10.1042/bj0600541,biochemical journal,laboratory of molecular biology,YES,chemistry
 20114,"sanger, f",1958,disulphide interchange reactions,1955,69257807,10.1042/bj0600535,biochemical journal,laboratory of molecular biology,YES,chemistry
@@ -854,7 +853,6 @@ laureate_id,laureate_name,prize_year,title,pub_year,paper_id,doi,journal,affilia
 10179,"bohr, n",1922,lxxiii on the constitution of atoms and molecules,1913,2060222759,10.1080/14786441308635031,philosophical magazine series 1,NA,YES,physics
 10179,"bohr, n",1922,i on the constitution of atoms and molecules,1913,1703910647,10.1080/14786441308634955,philosophical magazine series 1,NA,YES,physics
 10179,"bohr, n",1922,ii on the theory of the decrease of velocity of moving electrified particles on passing through matter,1913,2263196060,10.1080/14786440108634305,philosophical magazine series 1,NA,YES,physics
-10179,"bohr, n",1922,xxxvii on the constitution of atoms and molecules,2009,1805515744,10.1080/14786441308634993,philosophical magazine series 1,NA,YES,physics
 10180,"einstein, a",1921,uber einen die erzeugung und verwandlung des lichtes betreffenden heuristischen gesichtspunkt,1905,2005886497,10.1002/andp.19053220607,annalen der physik,institute for advanced study,YES,physics
 10180,"einstein, a",1921,zur elektrodynamik bewegter korper,1905,2048251016,10.1002/andp.19053221004,annalen der physik,institute for advanced study,YES,physics
 10180,"einstein, a",1921,on the movement of small particles suspended in a stationary liquid demanded by the molecular kinetic theory of heart,1905,2730405628,NA,annalen der physik,NA,YES,physics
@@ -867,7 +865,6 @@ laureate_id,laureate_name,prize_year,title,pub_year,paper_id,doi,journal,affilia
 10186,"bragg, wh",1915,the reflection of x rays by crystals,1913,1986715836,10.1098/rspa.1913.0040,NA,university of leeds,YES,physics
 10187,"laue, m",1914,interferenzerscheinungen bei rontgenstrahlen,1913,2049080732,10.1002/andp.19133461004,annalen der physik,NA,YES,physics
 10188,"onnes, hk",1913,"further experiments with liquid helium d - on the change of the electrical resistance of pure metals at very low temperatures, etc v the disappearance of the resistance of mercury",1911,NA,NA,NA,NA,YES,physics
-10189,"wien, w",1911,Wien's displacement law,1983,NA,NA,NA,NA,YES,physics
 10190,albert a. michelson,1907,On the Relative Motion of the Earth and the Luminiferous Ether,1887,2085155384,10.2475/ajs.s3-34.203.333,american journal of science,university of chicago,YES,physics
 10191,joseph john thomson,1906,XL. Cathode Rays,1897,2050833490,10.1080/14786449708621070,philosophical magazine series 1,NA,YES,physics
 10192,"lenard, p",1905,Ueber Kathodenstrahlen in Gasen von atmosphrischem Druck und im ussersten Vacuum,1894,2150938918,10.1002/andp.18942870202,annalen der physik,NA,YES,physics
