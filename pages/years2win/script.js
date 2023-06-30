@@ -153,8 +153,6 @@ d3.csv("../pages/years2win/data.csv")
               return d.category === category;
             });
 
-      console.log(filteredData);
-
       svg.selectAll("circle").remove();
 
       svg
