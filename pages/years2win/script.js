@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 var margin = { top: 50, right: 60, bottom: 50, left: 60 },
-  width = 600 - margin.left - margin.right,
-  height = 600 - margin.top - margin.bottom;
+  width = 650 - margin.left - margin.right,
+  height = 650 - margin.top - margin.bottom;
 
 var svg = d3
   .select("#my_dataviz")
@@ -14,7 +14,8 @@ var svg = d3
 d3.csv("../pages/years2win/data.csv")
   .then(function (data) {
     // Define color scale for Nobel categories
-    var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+    var colorScale = d3.scaleOrdinal()
+    .range(["#7fc97f", "#beaed4", "#fdc086"]);
 
     data.forEach(function (d) {
       d.prize_year = parseInt(d.prize_year);
@@ -81,9 +82,9 @@ d3.csv("../pages/years2win/data.csv")
       .style("padding", "5px");
 
     // Handle mouseover event
-    var mouseover = function (d) {
-      tooltip.transition().duration(200).style("opacity", 1);
-      d3.select(this).style("stroke", "black").style("opacity", 1);
+    var mouseover = function (event, d) {
+      tooltip.transition().duration(1).style("opacity", 1);
+      d3.select(this).style("stroke", "red").style("stroke-width", 4).style("opacity", 1);
     };
 
     // Handle mousemove event
@@ -93,7 +94,7 @@ d3.csv("../pages/years2win/data.csv")
           "Nobel Prize Category: " +
             d.category +
             "<br>" +
-            "Paper DOI: " +
+            "Prize Winning Paper DOI: " +
             d.doi +
             "<br>" +
             "Prize Laureate: " +
@@ -115,8 +116,8 @@ d3.csv("../pages/years2win/data.csv")
 
     // Handle mouseleave event
     var mouseleave = function (event, d) {
-      tooltip.transition().duration(200).style("opacity", 0);
-      d3.select(this).style("stroke", "none").style("opacity", 0.6);
+      tooltip.style("opacity", 0);
+      d3.select(this).style("stroke", "black").style("stroke-width", 1).style("opacity", 1);
     };
 
     svg
@@ -134,11 +135,48 @@ d3.csv("../pages/years2win/data.csv")
       .style("fill", function (d) {
         return colorScale(d.category);
       })
-      .style("opacity", 0.6)
-      .style("stroke", "none")
+      .style("opacity", 1)
+      .style("stroke", "black")
       .on("mouseover", mouseover)
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave);
+
+    d3.select("#category-filter").on("change", function () {
+      var selectedCategory = this.value.toLowerCase();
+      filterData(selectedCategory);
+    });
+
+    function filterData(category) {
+      var filteredData =
+        category === "all"
+          ? data
+          : data.filter(function (d) {
+              return d.category === category;
+            });
+
+      svg.selectAll("circle").remove();
+
+      svg
+        .selectAll("dot")
+        .data(filteredData)
+        .enter()
+        .append("circle")
+        .attr("cx", function (d) {
+          return x(d.prize_year);
+        })
+        .attr("cy", function (d) {
+          return y(d.years_to_win);
+        })
+        .attr("r", 9)
+        .style("fill", function (d) {
+          return colorScale(d.category);
+        })
+        .style("opacity", 1)
+        .style("stroke", "black")
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave);
+    }
 
     // Create color legend
     var legendContainer = d3.select("#legend");

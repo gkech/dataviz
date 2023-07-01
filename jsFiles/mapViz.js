@@ -10,9 +10,9 @@ function visualizeMap(valueToFilter){
 
     console.log("result"+result);
 
-    const svg = d3.select('body').append('svg').attr('width', width).attr('height', height).attr("class", "dim-svg");;
+    const svg = d3.select('body').append('svg').attr('width', width).attr('height', height).attr("class", "dim-svg");
     const tooltip = d3.select('body').append('div')
-      .attr('class', 'tooltip')
+      .attr('class', 'dim-tooltip')
       .style('display', 'none');
 
     const projection = d3.geoNaturalEarth1().scale(210).translate([width / 2, height / 1.9]);
@@ -57,7 +57,6 @@ function visualizeMap(valueToFilter){
                             countrySize[row.iso_n3] = row;
                         });
                     }else {
-                        console.log("2:" +result);
                         topoJsonData.objects.countries.geometries.forEach(d => {
                         countrySize[d.id] = d;
                         });
@@ -70,12 +69,11 @@ function visualizeMap(valueToFilter){
                     g.selectAll('path').data(countries.features)
                         .enter()
                         .append('path')
-                            .attr('class', 'country')
+                            .attr('class', 'dim-country')
                             .attr('d', pathGenerator)
                             .style('fill', d => {
 
                                 var id = countrySize[d.id];
-                                console.log(id);
                                 if(typeof id !== 'undefined'){
                                     if (typeof countrySize[d.id].Size === 'undefined') {
                                         return '#fceab7';
