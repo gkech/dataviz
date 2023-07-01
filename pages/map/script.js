@@ -1,6 +1,6 @@
 function visualizeMap(valueToFilter) {
-  const width = "1000";
-  const height = "560";
+  const width = "800";
+  const height = "500";
 
   const columnToFilter = "category";
   //    const valueToFilter = "Peace";
@@ -26,7 +26,7 @@ function visualizeMap(valueToFilter) {
 
   const projection = d3
     .geoNaturalEarth1()
-    .scale(210)
+    .scale(150)
     .translate([width / 2, height / 1.9]);
   const pathGenerator = d3.geoPath().projection(projection);
 
