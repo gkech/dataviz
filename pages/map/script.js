@@ -8,10 +8,12 @@ function visualizeMap(valueToFilter){
 //    const valueToFilter = "Peace";
     let result = valueToFilter ?? "default value";
 
-    console.log("result"+result);
+    const svg = d3.select("#my_dataviz_map")
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height);
 
-    const svg = d3.select('body').append('svg').attr('width', width).attr('height', height).attr("class", "dim-svg");
-    const tooltip = d3.select('body').append('div')
+    const tooltip = d3.select('#my_dataviz_map').append('div')
       .attr('class', 'dim-tooltip')
       .style('display', 'none');
 
@@ -36,8 +38,8 @@ function visualizeMap(valueToFilter){
 
     //https://unpkg.com/world-atlas@1.1.4/world/50m.json'
     Promise.all([d3.tsv('https://unpkg.com/world-atlas@1.1.4/world/50m.tsv'),
-                d3.json('../json_file.json'),
-                d3.csv('../csv_category.csv')
+                d3.json('../pages/map/json_file.json'),
+                d3.csv('../pages/map/csv_category.csv')
                 ]).then(([tsvData, topoJsonData, csvData]) => {
                     const countries = topojson.feature(topoJsonData, topoJsonData.objects.countries);
 
