@@ -1,7 +1,7 @@
-d3.csv("data.csv").then(function(data) {
+d3.csv("../pages/top_schools/data.csv").then(function(data) {
     const margin = { top: 50, right: 20, bottom: 40, left: 180 };
-    const containerWidth = window.innerWidth * 0.5; // Set the desired width for the chart container as 0.5 times the window width
-    const containerHeight = window.innerHeight * 0.6; // Set the desired height for the chart container
+    const containerWidth = window.innerWidth * 0.5; // Chart container width
+    const containerHeight = window.innerHeight * 0.6; // chart container height
     const width = containerWidth - margin.left - margin.right;
     const height = containerHeight - margin.top - margin.bottom;
     const barHeight = 30;
@@ -12,7 +12,7 @@ d3.csv("data.csv").then(function(data) {
         const chartHeight = data.length * barHeight;
 
         let maxCount = d3.max(data, d => d.count);
-        let desiredTicks = 10; // adjust this value based on your preference
+        let desiredTicks = 10;
         let step = Math.ceil(maxCount / desiredTicks);
         let tickValues = Array.from({length: desiredTicks}, (_, i) => i * step);
 
@@ -25,10 +25,10 @@ d3.csv("data.csv").then(function(data) {
             .range([chartHeight, 0]) // Reverse the range to position the bars from top to bottom
             .padding(0.1);
 
-        const chartContainer = d3.select("#chart")
+        const chartContainer = d3.select("#top-schools-chart")
             .style("overflow-y", "scroll") // Enable vertical scrolling
-            .style("max-height", `${containerHeight}px`) // Set the desired max height for the chart container
-            .style("width", `${containerWidth}px`); // Set the desired width for the chart container
+            .style("max-height", `${containerHeight}px`) // Max height for the chart container
+            .style("width", `${containerWidth}px`); // Width for the chart container
 
         chartContainer.selectAll("svg").remove();
 
@@ -38,17 +38,6 @@ d3.csv("data.csv").then(function(data) {
             .append("g")
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        // Add a chart title
-        svg.append("text")
-            .attr("x", width / 2) // position the title in the middle of the chart
-            .attr("y", -margin.top / 1.4) // position the title above the chart
-            .attr("text-anchor", "middle") // center the text
-            .style("font-size", "20px") // adjust the font size or other properties as needed
-            .style("font-weight", "300") // use a lighter font weight for a minimalistic look
-            .style("font-family", "'Open Sans', sans-serif") // use a modern sans-serif font
-            .style("fill", "#333") // use a dark gray color for a softer look
-            .text("Top Organizations"); // replace with your title
-
         svg.selectAll("rect")
             .data(data)
             .enter()
@@ -56,7 +45,7 @@ d3.csv("data.csv").then(function(data) {
             .attr("y", d => y(d.organization))
             .attr("width", d => Math.max(1, x(d.count))) // Set a minimum width for the bars
             .attr("height", y.bandwidth())
-            .attr("fill", "#6e9fc5");
+            .attr("fill", "rgb(8, 104, 172)");
 
         // Append text elements to display the count of each bar
         svg.selectAll(".count-label")
@@ -82,21 +71,21 @@ d3.csv("data.csv").then(function(data) {
             .attr("class", "y-axis")
             .call(d3.axisLeft(y))
             .selectAll(".tick text")  // select all the y axis labels
-            .call(function(t) {  // use a function to operate on the selected text elements
-                t.each(function(d) {  // for each label
-                    d3.select(this)  // select the current label
+            .call(function(t) {
+                t.each(function(d) {
+                    d3.select(this)
                         .text(function(d) { return d.length > 25 ? d.slice(0, 25) + "..." : d; }) // trim the label if it's too long
                         .append("title")  // append a title tag to the label
                         .text(d);  // set the title text to the full label text
                 });
             });
 
-        // Adjust the width of the y-axis ticks using CSS styling
+        // Adjust the width of the y-axis ticks
         yAxis.selectAll("line").style("stroke-width", "2px");
         yAxis.selectAll("path").style("stroke-width", "2px");
         yAxis.selectAll("text").style("font-size", "12px");
 
-        // Adjust the width of the y-axis tick marks using CSS styling
+        // Adjust the width of the y-axis tick marks
         yAxis.selectAll(".tick line").style("stroke-width", "2px");
     };
 

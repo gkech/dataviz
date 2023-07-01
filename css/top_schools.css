@@ -5,7 +5,7 @@ body {
     padding: 0;
 }
 
-#chart {
+#top_schools_chart {
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -25,11 +25,11 @@ body {
 }
 
 rect {
-    fill: #6e9fc5;
+    fill: rgb(186, 228, 188)
 }
 
 rect:hover {
-    fill: #4087b5;
+    fill: rgb(123, 204, 196);
 }
 
 .chart-title {
@@ -69,24 +69,24 @@ rect:hover {
     color: #333;
 }
 
-#chart::-webkit-scrollbar {
+#top_schools_chart::-webkit-scrollbar {
     width: 5px; /* Width of the vertical scrollbar */
     height: 5px; /* Height of the horizontal scrollbar */
 }
 
-#chart::-webkit-scrollbar-track {
+#top_schools_chart::-webkit-scrollbar-track {
     background: #f1f1f1; /* Color of the scrollbar track */
 }
 
-#chart::-webkit-scrollbar-thumb {
+#top_schools_chart::-webkit-scrollbar-thumb {
     background: #888; /* Color of the scroll thumb */
 }
 
-#chart::-webkit-scrollbar-thumb:hover {
+#top_schools_chart::-webkit-scrollbar-thumb:hover {
     background: #555; /* Color of the scroll thumb on hover */
 }
 
-#chart {
+#top_schools_chart {
     scrollbar-width: thin; /* Width of the scrollbar */
     scrollbar-color: #888 #f1f1f1; /* Color of the scrollbar thumb and track */
 }
