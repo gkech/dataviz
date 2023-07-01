@@ -8,14 +8,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body onload="main()">
-    <div class="container">
+    <div class="age_distribution">
         <div class="row">
           <div class="col text-center">
-            <h1 class="display-4">Age Distribution of Nobel Prize Winners from 1901 to 2016</h1>
+            <h3 class="display-4">Age Distribution of Nobel Prize Winners from 1901 to 2016</h3>
           </div>
         </div>
-      
-    
         <label for="category-select">Select Category:</label>
         <select id="category-select">
           <option value="all">All Categories</option>
@@ -28,10 +26,10 @@
           <!-- Add more options for other categories -->
         </select>
       </div>
-      <svg id="chart" width="1500" height="900"></svg>
+      <svg id="ageDistr" width="1500" height="900"></svg>
     </div>
 
-      <div class="how-section1">
+      <div class="age_distr_info">
         <div class="row">
             <div class="col-md-6">
                 <h4>Malala Yousafzai</h4>

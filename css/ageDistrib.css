@@ -1,0 +1,22 @@
+.age_distr_info{
+    margin-top:-15%;
+    padding: 10%;
+}
+.age_distr_info h4{
+    font-weight: bold;
+    font-size: 30px;
+}
+.age_distr_info .subheading{
+    font-size: 20px;
+}
+.age_distr_info .row
+{
+    margin-top: 10%;
+}
+.how-img 
+{
+    text-align: center;
+}
+.how-img img{
+    width: 40%;
+}
