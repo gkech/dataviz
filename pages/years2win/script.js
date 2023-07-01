@@ -89,16 +89,16 @@ d3.csv("../pages/years2win/data.csv")
 
     // Handle mousemove event
     var mousemove = function (event, d) {
+      const capitalizedCategory = d.category.charAt(0).toUpperCase()+ d.category.slice(1)
+      const capitalizedLaureateName = d.laureate_name.charAt(0).toUpperCase()+ d.laureate_name.slice(1)
+      
       tooltip
         .html(
           "Nobel Prize Category: " +
-            d.category +
-            "<br>" +
-            "Prize Winning Paper DOI: " +
-            d.doi +
+          capitalizedCategory +
             "<br>" +
             "Prize Laureate: " +
-            d.laureate_name +
+            capitalizedLaureateName +
             "<br>" +
             "Years to Win: " +
             d.years_to_win +
