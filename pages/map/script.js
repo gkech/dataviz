@@ -48,8 +48,6 @@ function visualizeMap(valueToFilter){
                     });
 
                     if(result !== "default value"){
-                        console.log("1:" +result);
-
                         // Filter rows based on the specific value in the column
                         const filteredRows = csvData.filter(function(row) {
                             return row[columnToFilter] === valueToFilter;
@@ -65,7 +63,7 @@ function visualizeMap(valueToFilter){
                     }
 
                     r = [0, 3, 10, 20, 50, 200]
-                    color_legend.domain(r).range(['#fbdf90', '#ffe49b','#ffdc7c','#ffcc54','#ffae2c', '#ff5500']);
+                    color_legend.domain(r).range(['#fbdf90','#ffe49b','#ffdc7c','#ffcc54','#ffae2c', '#ff5500']);
                     color_legend_label.domain(r).range(['#fceab7','#ffe49b','#ffdc7c','#ffcc54','#ffae2c', '#ff5500'])
 
                     g.selectAll('path').data(countries.features)
@@ -126,11 +124,9 @@ function visualizeMap(valueToFilter){
 
                         var name = countryName[d.id].name;
                         var id = countrySize[d.id];
-                        console.log(id);
                         if(typeof id !== 'undefined'){
                             var size = countrySize[d.id].Size;
                         }
-                        console.log(size);
                         if (typeof size === 'undefined') {
                             size = '0'; // Replace undefined with a zero
                         }
