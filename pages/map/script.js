@@ -167,9 +167,9 @@ function visualizeMap(valueToFilter) {
         size = "0"; // Replace undefined with a zero
       }
 
-      nobel = "Nobel";
+      nobel = "Nobel Prize";
       if (greaterThanOne(size)) {
-        nobel = "Nobels";
+        nobel = "Nobel Prizes";
       }
 
       // tooltip.text(`${name}: ${size} ${nobel}`);
