@@ -206,3 +206,537 @@ Venezuela,862,Medicine,1
 Vietnam,704,Peace,1
 Yemen,887,Peace,1
 Zimbabwe,716,Peace,1
+
+
+fill the missing nobels from each country with zero
+
+ChatGPT
+To fill in the missing Nobel Prize categories for each country with zero, you can use the provided data and add the missing categories with a size value of zero. Here's an updated version of the data with the missing categories filled:
+
+Country,iso_n3,category,Size
+Algeria,012,Literature,1
+Algeria,012,Physics,2
+Algeria,012,Chemistry,0
+Algeria,012,Medicine,0
+Algeria,012,Economics,0
+Algeria,012,Peace,0
+Argentina,032,Medicine,2
+Argentina,032,Peace,2
+Argentina,032,Chemistry,0
+Argentina,032,Literature,0
+Argentina,032,Economics,0
+Argentina,032,Physics,0
+Australia,036,Chemistry,1
+Australia,036,Medicine,8
+Australia,036,Physics,2
+Australia,036,Literature,0
+Australia,036,Economics,0
+Australia,036,Peace,0
+Austria,040,Peace,1
+Austria,040,Medicine,6
+Austria,040,Physics,3
+Austria,040,Economics,1
+Austria,040,Chemistry,7
+Austria,040,Literature,1
+Azerbaijan,031,Physics,1
+Azerbaijan,031,Chemistry,0
+Azerbaijan,031,Medicine,0
+Azerbaijan,031,Economics,0
+Azerbaijan,031,Literature,0
+Azerbaijan,031,Peace,0
+Bangladesh,050,Peace,1
+Bangladesh,050,Chemistry,0
+Bangladesh,050,Literature,0
+Bangladesh,050,Medicine,0
+Bangladesh,050,Economics,0
+Bangladesh,050,Physics,0
+Belarus,112,Economics,1
+Belarus,112,Peace,2
+Belarus,112,Physics,1
+Belarus,112,Chemistry,0
+Belarus,112,Literature,0
+Belarus,112,Medicine,0
+Belgium,056,Chemistry,1
+Belgium,056,Literature,1
+Belgium,056,Medicine,3
+Belgium,056,Peace,3
+Belgium,056,Physics,1
+Belgium,056,Economics,0
+Bosnia and Herz.,070,Chemistry,1
+Bosnia and Herz.,070,Literature,1
+Bosnia and Herz.,070,Medicine,0
+Bosnia and Herz.,070,Peace,0
+Bosnia and Herz.,070,Physics,0
+Bosnia and Herz.,070,Economics,0
+Brazil,076,Medicine,1
+Brazil,076,Chemistry,0
+Brazil,076,Literature,0
+Brazil,076,Peace,0
+Brazil,076,Physics,0
+Brazil,076,Economics,0
+Bulgaria,100,Literature,1
+Bulgaria,100,Chemistry,0
+Bulgaria,100,Medicine,0
+Bulgaria,100,Peace,0
+Bulgaria,100,Physics,0
+Bulgaria,100,Economics,0
+Canada,124,Chemistry,4
+Canada,124,Economics,3
+Canada,124,Literature,2
+Canada,124,Medicine,4
+Canada,124,Peace,1
+Canada,124,Physics,4
+Chile,152,Literature,2
+Chile,152,Chemistry,0
+Chile,152,Medicine,0
+Chile,152,Peace,0
+Chile,152,Physics,0
+Chile,152,Economics,0
+China,156,Peace,2
+China,156,Medicine,2
+China,156,Physics,6
+China,156,Chemistry,1
+China,156,Literature,2
+China,156,Economics,0
+Colombia,170,Literature,1
+Colombia,170,Peace,1
+Colombia,170,Chemistry,0
+Colombia,170,Medicine,0
+Colombia,170,Economics,0
+Colombia,170,Physics,0
+Costa Rica,188,Peace,1
+Costa Rica,188,Chemistry,0
+Costa Rica,188,Literature,0
+Costa Rica,188,Medicine,0
+Costa Rica,188,Economics,0
+Costa Rica,188,Physics,0
+Croatia,191,Chemistry,1
+Croatia,191,Literature,0
+Croatia,191,Medicine,0
+Croatia,191,Peace,0
+Croatia,191,Physics,0
+Croatia,191,Economics,0
+Cyprus,196,Economics,1
+Cyprus,196,Chemistry,0
+Cyprus,196,Literature,0
+Cyprus,196,Medicine,0
+Cyprus,196,Peace,0
+Cyprus,196,Physics,0
+Czech Rep.,203,Chemistry,1
+Czech Rep.,203,Literature,1
+Czech Rep.,203,Medicine,2
+Czech Rep.,203,Peace,1
+Czech Rep.,203,Physics,1
+Czech Rep.,203,Economics,0
+Denmark,208,Physics,2
+Denmark,208,Peace,1
+Denmark,208,Literature,4
+Denmark,208,Medicine,4
+Denmark,208,Chemistry,1
+Denmark,208,Economics,0
+Egypt,818,Chemistry,2
+Egypt,818,Literature,1
+Egypt,818,Peace,3
+Egypt,818,Medicine,0
+Egypt,818,Economics,0
+Egypt,818,Physics,0
+Finland,246,Chemistry,1
+Finland,246,Economics,1
+Finland,246,Literature,1
+Finland,246,Medicine,1
+Finland,246,Peace,1
+Finland,246,Physics,0
+France,250,Physics,10
+France,250,Peace,10
+France,250,Medicine,12
+France,250,Literature,11
+France,250,Economics,3
+France,250,Chemistry,10
+Germany,276,Chemistry,28
+Germany,276,Economics,1
+Germany,276,Literature,8
+Germany,276,Medicine,20
+Germany,276,Peace,5
+Germany,276,Physics,27
+Ghana,288,Peace,1
+Ghana,288,Chemistry,0
+Ghana,288,Literature,0
+Ghana,288,Medicine,0
+Ghana,288,Economics,0
+Ghana,288,Physics,0
+Greece,300,Literature,1
+Greece,300,Chemistry,0
+Greece,300,Medicine,0
+Greece,300,Peace,0
+Greece,300,Economics,0
+Greece,300,Physics,0
+Guatemala,320,Peace,1
+Guatemala,320,Chemistry,0
+Guatemala,320,Literature,1
+Guatemala,320,Medicine,0
+Guatemala,320,Economics,0
+Guatemala,320,Physics,0
+Hungary,348,Chemistry,3
+Hungary,348,Economics,1
+Hungary,348,Literature,1
+Hungary,348,Medicine,2
+Hungary,348,Physics,2
+Iceland,352,Literature,1
+Iceland,352,Chemistry,0
+Iceland,352,Medicine,0
+Iceland,352,Peace,0
+Iceland,352,Physics,0
+Iceland,352,Economics,0
+India,356,Physics,1
+India,356,Medicine,2
+India,356,Peace,1
+India,356,Economics,1
+India,356,Chemistry,1
+India,356,Literature,2
+Indonesia,360,Medicine,1
+Indonesia,360,Chemistry,0
+Indonesia,360,Literature,0
+Indonesia,360,Peace,0
+Indonesia,360,Economics,0
+Indonesia,360,Physics,0
+Iran,364,Literature,1
+Iran,364,Peace,1
+Iran,364,Chemistry,0
+Iran,364,Medicine,0
+Iran,364,Economics,0
+Iran,364,Physics,0
+Ireland,372,Literature,3
+Ireland,372,Medicine,1
+Ireland,372,Physics,1
+Ireland,372,Chemistry,0
+Ireland,372,Peace,0
+Ireland,372,Economics,0
+Israel,376,Economics,1
+Israel,376,Chemistry,4
+Israel,376,Peace,1
+Israel,376,Literature,0
+Israel,376,Medicine,0
+Israel,376,Physics,0
+Italy,380,Physics,5
+Italy,380,Medicine,6
+Italy,380,Peace,1
+Italy,380,Economics,1
+Italy,380,Chemistry,1
+Italy,380,Literature,6
+Japan,392,Chemistry,7
+Japan,392,Literature,2
+Japan,392,Medicine,5
+Japan,392,Peace,1
+Japan,392,Physics,14
+Kenya,404,Peace,1
+Kenya,404,Chemistry,0
+Kenya,404,Literature,0
+Kenya,404,Medicine,0
+Kenya,404,Economics,0
+Kenya,404,Physics,0
+Korea,410,Chemistry,1
+Korea,410,Peace,1
+Korea,410,Literature,0
+Korea,410,Medicine,0
+Korea,410,Economics,0
+Korea,410,Physics,0
+Latvia,428,Chemistry,1
+Latvia,428,Economics,0
+Latvia,428,Literature,0
+Latvia,428,Medicine,0
+Latvia,428,Peace,0
+Latvia,428,Physics,0
+Liberia,430,Peace,2
+Liberia,430,Chemistry,0
+Liberia,430,Literature,0
+Liberia,430,Medicine,0
+Liberia,430,Economics,0
+Liberia,430,Physics,0
+Liechtenstein,438,Chemistry,0
+Liechtenstein,438,Literature,0
+Liechtenstein,438,Medicine,0
+Liechtenstein,438,Peace,0
+Liechtenstein,438,Physics,0
+Liechtenstein,438,Economics,0
+Lithuania,440,Economics,1
+Lithuania,440,Chemistry,0
+Lithuania,440,Literature,0
+Lithuania,440,Medicine,0
+Lithuania,440,Peace,0
+Lithuania,440,Physics,0
+Luxembourg,442,Chemistry,0
+Luxembourg,442,Literature,0
+Luxembourg,442,Medicine,0
+Luxembourg,442,Peace,0
+Luxembourg,442,Physics,0
+Luxembourg,442,Economics,0
+Malaysia,458,Peace,1
+Malaysia,458,Chemistry,0
+Malaysia,458,Literature,0
+Malaysia,458,Medicine,0
+Malaysia,458,Economics,0
+Malaysia,458,Physics,0
+Mexico,484,Peace,3
+Mexico,484,Chemistry,2
+Mexico,484,Literature,1
+Mexico,484,Medicine,3
+Mexico,484,Economics,0
+Mexico,484,Physics,1
+Moldova,498,Chemistry,0
+Moldova,498,Literature,0
+Moldova,498,Medicine,0
+Moldova,498,Peace,0
+Moldova,498,Physics,0
+Moldova,498,Economics,0
+Morocco,504,Peace,1
+Morocco,504,Chemistry,0
+Morocco,504,Literature,0
+Morocco,504,Medicine,0
+Morocco,504,Economics,0
+Morocco,504,Physics,0
+Nepal,524,Peace,1
+Nepal,524,Chemistry,0
+Nepal,524,Literature,0
+Nepal,524,Medicine,0
+Nepal,524,Economics,0
+Nepal,524,Physics,0
+Netherlands,528,Chemistry,4
+Netherlands,528,Economics,3
+Netherlands,528,Literature,1
+Netherlands,528,Medicine,5
+Netherlands,528,Peace,3
+Netherlands,528,Physics,3
+New Zealand,554,Chemistry,2
+New Zealand,554,Economics,0
+New Zealand,554,Literature,0
+New Zealand,554,Medicine,0
+New Zealand,554,Peace,0
+New Zealand,554,Physics,0
+Nigeria,566,Peace,1
+Nigeria,566,Chemistry,0
+Nigeria,566,Literature,1
+Nigeria,566,Medicine,0
+Nigeria,566,Economics,0
+Nigeria,566,Physics,0
+Norway,578,Physics,3
+Norway,578,Peace,4
+Norway,578,Medicine,6
+Norway,578,Literature,4
+Norway,578,Economics,2
+Norway,578,Chemistry,2
+Pakistan,586,Peace,1
+Pakistan,586,Chemistry,0
+Pakistan,586,Literature,0
+Pakistan,586,Medicine,1
+Pakistan,586,Economics,0
+Pakistan,586,Physics,1
+Palestine,275,Peace,1
+Palestine,275,Chemistry,0
+Palestine,275,Literature,0
+Palestine,275,Medicine,0
+Palestine,275,Economics,0
+Palestine,275,Physics,0
+Peru,604,Literature,1
+Peru,604,Chemistry,0
+Peru,604,Medicine,0
+Peru,604,Peace,0
+Peru,604,Economics,0
+Peru,604,Physics,0
+Philippines,608,Peace,1
+Philippines,608,Chemistry,0
+Philippines,608,Literature,0
+Philippines,608,Medicine,0
+Philippines,608,Economics,0
+Philippines,608,Physics,0
+Poland,616,Chemistry,3
+Poland,616,Economics,1
+Poland,616,Literature,2
+Poland,616,Medicine,3
+Poland,616,Peace,1
+Poland,616,Physics,1
+Portugal,620,Chemistry,1
+Portugal,620,Economics,1
+Portugal,620,Literature,0
+Portugal,620,Medicine,1
+Portugal,620,Peace,1
+Portugal,620,Physics,1
+Romania,642,Chemistry,1
+Romania,642,Economics,1
+Romania,642,Literature,0
+Romania,642,Medicine,0
+Romania,642,Peace,0
+Romania,642,Physics,1
+Russia,643,Chemistry,5
+Russia,643,Economics,1
+Russia,643,Literature,4
+Russia,643,Medicine,4
+Russia,643,Peace,1
+Russia,643,Physics,9
+Saudi Arabia,682,Chemistry,0
+Saudi Arabia,682,Economics,0
+Saudi Arabia,682,Literature,0
+Saudi Arabia,682,Medicine,1
+Saudi Arabia,682,Peace,0
+Saudi Arabia,682,Physics,0
+Senegal,686,Peace,1
+Senegal,686,Chemistry,0
+Senegal,686,Literature,0
+Senegal,686,Medicine,0
+Senegal,686,Economics,0
+Senegal,686,Physics,0
+Serbia,688,Chemistry,0
+Serbia,688,Economics,1
+Serbia,688,Literature,0
+Serbia,688,Medicine,0
+Serbia,688,Peace,0
+Serbia,688,Physics,0
+Singapore,702,Chemistry,2
+Singapore,702,Economics,1
+Singapore,702,Literature,0
+Singapore,702,Medicine,0
+Singapore,702,Peace,0
+Singapore,702,Physics,0
+Slovakia,703,Chemistry,1
+Slovakia,703,Economics,1
+Slovakia,703,Literature,0
+Slovakia,703,Medicine,0
+Slovakia,703,Peace,0
+Slovakia,703,Physics,0
+Slovenia,705,Chemistry,1
+Slovenia,705,Economics,0
+Slovenia,705,Literature,0
+Slovenia,705,Medicine,0
+Slovenia,705,Peace,0
+Slovenia,705,Physics,0
+South Africa,710,Chemistry,1
+South Africa,710,Economics,0
+South Africa,710,Literature,0
+South Africa,710,Medicine,1
+South Africa,710,Peace,1
+South Africa,710,Physics,0
+Spain,724,Chemistry,2
+Spain,724,Economics,2
+Spain,724,Literature,5
+Spain,724,Medicine,4
+Spain,724,Peace,2
+Spain,724,Physics,1
+Sri Lanka,144,Peace,1
+Sri Lanka,144,Chemistry,0
+Sri Lanka,144,Literature,0
+Sri Lanka,144,Medicine,0
+Sri Lanka,144,Economics,0
+Sri Lanka,144,Physics,0
+Sudan,729,Peace,1
+Sudan,729,Chemistry,0
+Sudan,729,Literature,0
+Sudan,729,Medicine,0
+Sudan,729,Economics,0
+Sudan,729,Physics,0
+Sweden,752,Physics,6
+Sweden,752,Peace,2
+Sweden,752,Medicine,8
+Sweden,752,Literature,7
+Sweden,752,Economics,3
+Sweden,752,Chemistry,4
+Switzerland,756,Chemistry,7
+Switzerland,756,Economics,3
+Switzerland,756,Literature,5
+Switzerland,756,Medicine,7
+Switzerland,756,Peace,2
+Switzerland,756,Physics,3
+Syria,760,Chemistry,0
+Syria,760,Economics,0
+Syria,760,Literature,0
+Syria,760,Medicine,0
+Syria,760,Peace,0
+Syria,760,Physics,0
+Taiwan,158,Physics,2
+Taiwan,158,Chemistry,1
+Taiwan,158,Medicine,0
+Taiwan,158,Peace,0
+Taiwan,158,Economics,0
+Taiwan,158,Literature,0
+Thailand,764,Peace,1
+Thailand,764,Chemistry,1
+Thailand,764,Literature,0
+Thailand,764,Medicine,0
+Thailand,764,Economics,0
+Thailand,764,Physics,0
+Tunisia,788,Peace,1
+Tunisia,788,Chemistry,0
+Tunisia,788,Literature,0
+Tunisia,788,Medicine,0
+Tunisia,788,Economics,0
+Tunisia,788,Physics,0
+Turkey,792,Chemistry,1
+Turkey,792,Economics,1
+Turkey,792,Literature,1
+Turkey,792,Medicine,1
+Turkey,792,Peace,1
+Turkey,792,Physics,1
+Uganda,800,Peace,0
+Uganda,800,Chemistry,0
+Uganda,800,Literature,0
+Uganda,800,Medicine,0
+Uganda,800,Economics,0
+Uganda,800,Physics,0
+Ukraine,804,Chemistry,1
+Ukraine,804,Economics,0
+Ukraine,804,Literature,0
+Ukraine,804,Medicine,1
+Ukraine,804,Peace,0
+Ukraine,804,Physics,0
+United Arab Emirates,784,Chemistry,0
+United Arab Emirates,784,Economics,0
+United Arab Emirates,784,Literature,0
+United Arab Emirates,784,Medicine,0
+United Arab Emirates,784,Peace,0
+United Arab Emirates,784,Physics,0
+United Kingdom,826,Chemistry,31
+United Kingdom,826,Economics,9
+United Kingdom,826,Literature,12
+United Kingdom,826,Medicine,33
+United Kingdom,826,Peace,11
+United Kingdom,826,Physics,16
+United States,840,Chemistry,77
+United States,840,Economics,62
+United States,840,Literature,13
+United States,840,Medicine,171
+United States,840,Peace,24
+United States,840,Physics,30
+Uruguay,858,Chemistry,1
+Uruguay,858,Economics,0
+Uruguay,858,Literature,0
+Uruguay,858,Medicine,0
+Uruguay,858,Peace,0
+Uruguay,858,Physics,0
+Uzbekistan,860,Chemistry,0
+Uzbekistan,860,Economics,0
+Uzbekistan,860,Literature,0
+Uzbekistan,860,Medicine,0
+Uzbekistan,860,Peace,0
+Uzbekistan,860,Physics,0
+Venezuela,862,Peace,1
+Venezuela,862,Chemistry,0
+Venezuela,862,Literature,0
+Venezuela,862,Medicine,0
+Venezuela,862,Economics,0
+Venezuela,862,Physics,0
+Vietnam,704,Peace,0
+Vietnam,704,Chemistry,0
+Vietnam,704,Literature,0
+Vietnam,704,Medicine,0
+Vietnam,704,Economics,0
+Vietnam,704,Physics,0
+Yemen,887,Peace,0
+Yemen,887,Chemistry,0
+Yemen,887,Literature,0
+Yemen,887,Medicine,0
+Yemen,887,Economics,0
+Yemen,887,Physics,0
+Zimbabwe,716,Peace,1
+Zimbabwe,716,Chemistry,0
+Zimbabwe,716,Literature,0
+Zimbabwe,716,Medicine,0
+Zimbabwe,716,Economics,0
+Zimbabwe,716,Physics,0
