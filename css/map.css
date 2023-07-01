@@ -3,11 +3,5 @@
 }
 
 .dim-tooltip {
-    position: absolute;
     display: none;
-    background-color: #2456;
-    color: #fff;
-    padding: 2px;
-    font-size: 12px;
-    font-family:Segoe UI;
 }

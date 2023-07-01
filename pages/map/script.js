@@ -15,7 +15,13 @@ function visualizeMap(valueToFilter) {
   const tooltip = d3
     .select("#my_dataviz_map")
     .append("div")
+    .style("border", "solid")
+    .style("position", "absolute")
+    .style("background-color", "white")
     .attr("class", "dim-tooltip")
+    .style("border-width", "2px")
+    .style("border-radius", "5px")
+    .style("padding", "5px")
     .style("display", "none");
 
   const projection = d3
@@ -149,8 +155,8 @@ function visualizeMap(valueToFilter) {
     function showTooltip(event, d) {
       tooltip
         .style("display", "block")
-        .style("left", event.pageX + "px")
-        .style("top", event.pageY + "px");
+        .style("left", event.pageX + 10 + "px")
+        .style("top", event.pageY + 10 + "px");
 
       var name = countryName[d.id].name;
       var id = countrySize[d.id];
