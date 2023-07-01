@@ -150,7 +150,7 @@ function visualizeMap(valueToFilter) {
       .text((d) => d);
 
     // Style the legend labels
-    legendLabels.style("font-size", "13px").style("fill", "#f3f2f2");
+    legendLabels.style("font-size", "13px").style("fill", "black").style("fill", "black").style("font-weight", "bold");
 
     function showTooltip(event, d) {
       tooltip
