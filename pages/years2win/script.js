@@ -171,7 +171,7 @@ d3.csv("../pages/years2win/data.csv")
           return colorScale(d.category);
         })
         .style("opacity", 1)
-        .style("stroke", "grey")
+        .style("stroke", "black")
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave);
