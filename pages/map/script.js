@@ -166,7 +166,18 @@ function visualizeMap(valueToFilter) {
       if (typeof size === "undefined") {
         size = "0"; // Replace undefined with a zero
       }
-      tooltip.text(`${name}: ${size} Nobel`);
+
+      nobel = "Nobel";
+      if (greaterThanOne(size)) {
+        nobel = "Nobels";
+      }
+
+      // tooltip.text(`${name}: ${size} ${nobel}`);
+      tooltip.html("Country: " + name + "<br>" + "Won: " + size + " " + nobel);
+    }
+
+    function greaterThanOne(number) {
+      return number > 1;
     }
 
     function hideTooltip() {
