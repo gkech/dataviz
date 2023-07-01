@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/years2win.css" />
     <link rel="stylesheet" href="../css/map.css" />
     <link rel="stylesheet" href="../css/top_schools.css" />
+    <link rel="stylesheet" href="../css/ageDistrib.css" />
 
     <!-- Icon -->
     <link rel="icon" href="../images/nobel-icon.png" type="image/x-icon" />
@@ -43,7 +44,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://www.unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>
   </head>
   <body onload="visualizeMap('Physics')">
@@ -144,7 +144,45 @@
           <div class="d-flex justify-content-center">
             <div id="top-schools-chart"></div>
             <script src="top_schools/script.js"></script>
-          </div>          
+          </div> 
+          <!-- age distr start -->
+          <div class="d-flex justify-content-center">
+            <div id="legend"></div>
+            <div class="p-2 bd-highlight">
+              <svg id="ageDistr"  width="800" height="800"></svg> 
+            
+              <script src="age_distribution/try_10000.js"></script>
+            </div>
+            <div class="p-2 bd-highlight">
+              <div class="how-section1">
+                <div class="row">
+                    <div class="col-md-6">
+                        
+                        <h5>Malala Yousafzai</h5>
+                        
+                                    <h5 class="subheading"> Nobel Peace Prize - Age 17.</h5>
+                                    <p class="text-muted">She is the world's youngest Nobel Prize laureate, the second Pakistani and the first Pashtun to receive a Nobel Prize. Yousafzai is a human rights advocate for the education of women and children in her native homeland, Swat, where the Pakistani Taliban had at times banned girls from attending school.</p>
+                    </div>
+                    <div class="col-md-6 how-img">
+                        <img src="./age_distribution/Malala_Yousafzai.jpg" class="rounded-circle img-fluid" alt=""/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Leonid Hurwicz</h5>
+                                    <h5 class="subheading">Nobel Prize in Economics - Age 90.</h5>
+                                    <p class="text-muted">In October 2007, Hurwicz shared the Nobel Memorial Prize in Economic Sciences with Eric Maskin of the Institute for Advanced Study and Roger Myerson of the University of Chicago "for having laid the foundations of mechanism design theory.</p>
+                    </div>
+                    <div class="col-md-6 how-img">
+                        <img src="./age_distribution/leonid_hurwicz .jpg" class="rounded-circle img-fluid" alt=""/>
+                    </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        
+          <!-- age distr end -->        
         </div>
       </div>
       <div

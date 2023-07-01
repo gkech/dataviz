@@ -24,13 +24,13 @@ body {
     stroke: #ccc;
 }
 
-rect {
+/* rect {
     fill: rgb(186, 228, 188)
 }
-
+*/
 rect:hover {
-    fill: rgb(123, 204, 196);
-}
+    opacity: 70%;
+} 
 
 .chart-title {
     font-family: Arial, sans-serif;

@@ -141,7 +141,9 @@ d3.csv("../pages/years2win/data.csv")
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave);
 
-    d3.select("#category-filter").on("change", function () {
+
+    const select = document.getElementById("category-filter");
+    select.addEventListener ("change", function () {
       var selectedCategory = this.value.toLowerCase();
       filterData(selectedCategory);
     });

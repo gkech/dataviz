@@ -1,8 +1,8 @@
-var svg = d3.select("#ageDistr"),
+var svg1 = d3.select("#ageDistr"),
     margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom,
-    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    width = 800 - margin.left - margin.right,
+    height =650 - margin.top - margin.bottom,
+    g = svg1.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var x = d3.scaleBand()
     .rangeRound([0, width])
@@ -15,12 +15,14 @@ var y = d3.scaleLinear()
 var z = d3.scaleOrdinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-d3.csv("./age_groups.csv", function(d, i, columns) {
-    for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
-        d.total = t;
-    return d;
-}, function(error, data) {
-    if (error) throw error;
+d3.csv("/dataviz/age_groups.csv",function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  console.log(d.total)
+  return d;
+})
+  .then(function (data) {
+      // Define color scale for Nobel categories
 
     var keys = data.columns.slice(1);
     console.log(keys)
@@ -33,7 +35,7 @@ d3.csv("./age_groups.csv", function(d, i, columns) {
     updateViz(data, keys)
 
 
-    const select = document.getElementById("category-select");
+    const select = document.getElementById("category-filter");
     select.addEventListener ("change", function () {
         const selectedCategory = this.value;
         console.log(selectedCategory)
@@ -49,7 +51,26 @@ d3.csv("./age_groups.csv", function(d, i, columns) {
         updateViz(data, keys)
     });
 
+    function handleMouseOver(event,d) {
+      var segmentValue = d[1] - d[0]
+      console.log(segmentValue)
+      const xPosition = parseFloat(d3.select(this).attr("x")) + x.bandwidth() / 2;
+      const yPosition = parseFloat(d3.select(this).attr("y")) + 10;
+
+      g.append("text")
+        .attr("class", "value-label")
+        .attr("x", xPosition)
+        .attr("y", yPosition)
+        .attr("text-anchor", "middle")
+        .text(segmentValue);
+    }
+
+    function handleMouseOut() {
+      g.select(".value-label").remove();
+    }
+
     function updateViz(data, keys){
+
         console.log(keys)
         g.selectAll("g").remove();
         x.domain(data.map(function(d) { return d.age_group; }));
@@ -66,37 +87,10 @@ d3.csv("./age_groups.csv", function(d, i, columns) {
             .attr("y", function(d) { return y(d[1]); })
             .attr("height", function(d) { return y(d[0]) - y(d[1]); })
             .attr("width", x.bandwidth())
-            .on("mouseover", function(d) {
-                // Show tooltip
-                d3.select(this)
-                  .transition()
-                  .duration(200)
-                  .style("opacity", 0.8)
-                  .attr("stroke", "black");
+            .on("mouseover", handleMouseOver)
+            .on("mouseout", handleMouseOut);
+           
             
-                // Position and display the value
-                const xPosition = parseFloat(d3.select(this).attr("x")) + x.bandwidth() / 2;
-                const yPosition = parseFloat(d3.select(this).attr("y")) + 10;
-            
-                g.append("text")
-                  .attr("id", "tooltip")
-                  .attr("x", xPosition)
-                  .attr("y", yPosition)
-                  .attr("text-anchor", "middle")
-                  .attr("font-family", "sans-serif")
-                  .attr("font-size", "12px")
-                  .attr("font-weight", "bold")
-                  .text(d[1] - d[0] + " nobels")
-            })
-            .on("mouseout", function() {
-                // Hide tooltip
-                d3.select(this)
-                  .transition()
-                  .duration(200)
-                  .style("opacity", 1)
-                  .attr("stroke", "none");
-                  d3.select("#tooltip").remove();
-            });
 
         g.append("g")
             .attr("class", "axis")
