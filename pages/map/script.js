@@ -33,7 +33,7 @@ function visualizeMap(valueToFilter) {
   const g = svg.append("g");
 
   // Define the legend values
-  const legendValues = [0, 3, 10, 20, 50, 200];
+  const legendValues = [0, 5, 10, 20, 40];
   const legend = svg.append("g").attr("transform", `translate(20, 480)`);
 
   svg.call(
@@ -78,26 +78,24 @@ function visualizeMap(valueToFilter) {
       });
     }
 
-    r = [0, 3, 10, 20, 50, 200];
+    r = [0, 5, 10, 20, 40];
     color_legend
       .domain(r)
       .range([
-        "#fbdf90",
-        "#ffe49b",
-        "#ffdc7c",
-        "#ffcc54",
-        "#ffae2c",
-        "#ff5500",
+        "#f0f9e8",
+        "#bae4bc",
+        "#7bccc4",
+        "#43a2ca",
+        "#0868ac",
       ]);
     color_legend_label
       .domain(r)
       .range([
-        "#fceab7",
-        "#ffe49b",
-        "#ffdc7c",
-        "#ffcc54",
-        "#ffae2c",
-        "#ff5500",
+        "#f0f9e8",
+        "#bae4bc",
+        "#7bccc4",
+        "#43a2ca",
+        "#0868ac",
       ]);
 
     g.selectAll("path")
@@ -110,12 +108,12 @@ function visualizeMap(valueToFilter) {
         var id = countrySize[d.id];
         if (typeof id !== "undefined") {
           if (typeof countrySize[d.id].Size === "undefined") {
-            return "#fceab7";
+            return "#f0f9e8";
           } else {
             return color_legend(countrySize[d.id].Size);
           }
         } else {
-          return "#fceab7";
+          return "#f0f9e8";
         }
       })
       .style("stroke", "#9f9c97")
