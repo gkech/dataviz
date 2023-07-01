@@ -14,7 +14,8 @@ var svg = d3
 d3.csv("../pages/years2win/data.csv")
   .then(function (data) {
     // Define color scale for Nobel categories
-    var colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+    var colorScale = d3.scaleOrdinal()
+    .range(["#7fc97f", "#beaed4", "#fdc086"]);
 
     data.forEach(function (d) {
       d.prize_year = parseInt(d.prize_year);
