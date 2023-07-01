@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 var margin = { top: 50, right: 60, bottom: 50, left: 60 },
-  width = 600 - margin.left - margin.right,
-  height = 600 - margin.top - margin.bottom;
+  width = 650 - margin.left - margin.right,
+  height = 650 - margin.top - margin.bottom;
 
 var svg = d3
   .select("#my_dataviz")
@@ -81,7 +81,7 @@ d3.csv("../pages/years2win/data.csv")
       .style("padding", "5px");
 
     // Handle mouseover event
-    var mouseover = function (d) {
+    var mouseover = function (event, d) {
       tooltip.transition().duration(1).style("opacity", 1);
       d3.select(this).style("stroke", "red").style("stroke-width", 4).style("opacity", 1);
     };
@@ -115,8 +115,8 @@ d3.csv("../pages/years2win/data.csv")
 
     // Handle mouseleave event
     var mouseleave = function (event, d) {
-      tooltip.transition().duration(1).style("opacity", 0);
-      d3.select(this).style("stroke", "grey").style("stroke-width", 1).style("opacity", 1);
+      tooltip.style("opacity", 0);
+      d3.select(this).style("stroke", "black").style("stroke-width", 1).style("opacity", 1);
     };
 
     svg
@@ -135,7 +135,7 @@ d3.csv("../pages/years2win/data.csv")
         return colorScale(d.category);
       })
       .style("opacity", 1)
-      .style("stroke", "grey")
+      .style("stroke", "black")
       .on("mouseover", mouseover)
       .on("mousemove", mousemove)
       .on("mouseleave", mouseleave);
