@@ -16,6 +16,7 @@ function visualizeMap(valueToFilter) {
     .select("#my_dataviz_map")
     .append("div")
     .style("border", "solid")
+    .style("text-align", "left")
     .style("position", "absolute")
     .style("background-color", "white")
     .attr("class", "dim-tooltip")
@@ -150,11 +151,17 @@ function visualizeMap(valueToFilter) {
 
       var name = countryName[d.id].name;
       var id = countrySize[d.id];
+
       if (typeof id !== "undefined") {
         var size = countrySize[d.id].Size;
       }
       if (typeof size === "undefined") {
         size = "0"; // Replace undefined with a zero
+      }
+
+      category = countrySize[d.id].category;
+      if (typeof category === "undefined") {
+        category = "All";
       }
 
       nobel = "Nobel Prize";
@@ -163,7 +170,18 @@ function visualizeMap(valueToFilter) {
       }
 
       // tooltip.text(`${name}: ${size} ${nobel}`);
-      tooltip.html("Country: " + name + "<br>" + "Won: " + size + " " + nobel);
+      tooltip.html(
+        "Country: " +
+          name +
+          "<br>" +
+          "Won: " +
+          size +
+          " " +
+          nobel +
+          "<br>" +
+          "Caterogy: " +
+          category
+      );
     }
 
     function greaterThanOne(number) {
@@ -176,7 +194,7 @@ function visualizeMap(valueToFilter) {
     }
 
     const select = document.getElementById("category-filter");
-    select.addEventListener ("change", function () {
+    select.addEventListener("change", function () {
       updateMap(this.value);
     });
 
@@ -186,7 +204,6 @@ function visualizeMap(valueToFilter) {
       const columnToFilter = "category";
       //    const valueToFilter = "Peace";
       let result = valueToFilter ?? "all";
-
 
       if (result !== "all") {
         // Filter rows based on the specific value in the column
@@ -204,28 +221,27 @@ function visualizeMap(valueToFilter) {
       }
 
       g.selectAll("path")
-      .data(countries.features)
-      .enter()
-      .append("path")
-      .attr("class", "dim-country")
-      .attr("d", pathGenerator)
-      .style("fill", (d) => {
-        var id = countrySize[d.id];
-        if (typeof id !== "undefined") {
-          if (typeof countrySize[d.id].Size === "undefined") {
-            return "#f0f9e8";
+        .data(countries.features)
+        .enter()
+        .append("path")
+        .attr("class", "dim-country")
+        .attr("d", pathGenerator)
+        .style("fill", (d) => {
+          var id = countrySize[d.id];
+          if (typeof id !== "undefined") {
+            if (typeof countrySize[d.id].Size === "undefined") {
+              return "#f0f9e8";
+            } else {
+              return color_legend(countrySize[d.id].Size);
+            }
           } else {
-            return color_legend(countrySize[d.id].Size);
+            return "#f0f9e8";
           }
-        } else {
-          return "#f0f9e8";
-        }
-      })
-      .style("stroke", "#9f9c97")
-      .style("stroke-width", "0.3px")
-      .on("mouseover", showTooltip)
-      .on("mouseout", hideTooltip);
-
+        })
+        .style("stroke", "#9f9c97")
+        .style("stroke-width", "0.3px")
+        .on("mouseover", showTooltip)
+        .on("mouseout", hideTooltip);
     }
   });
 }

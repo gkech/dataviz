@@ -30,7 +30,6 @@ function drawAgeDistribution() {
     console.log(d.total);
     return d;
   }).then(function (data) {
-    // Define color scale for Nobel categories
 
     var keys = data.columns.slice(1);
     console.log(keys);

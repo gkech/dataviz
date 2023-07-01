@@ -81,6 +81,7 @@ function drawYears2Win() {
         .style("position", "absolute")
         .style("border-width", "2px")
         .style("border-radius", "5px")
+        .style("text-align", "left")
         .style("padding", "5px");
 
       // Handle mouseover event
