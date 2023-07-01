@@ -4,7 +4,7 @@ function visualizeMap(valueToFilter) {
 
   const columnToFilter = "category";
   //    const valueToFilter = "Peace";
-  let result = valueToFilter ?? "default value";
+  let result = valueToFilter ?? "all";
 
   const svg = d3
     .select("#my_dataviz_map")
@@ -63,7 +63,7 @@ function visualizeMap(valueToFilter) {
       countryName[d.iso_n3] = d;
     });
 
-    if (result !== "default value") {
+    if (result !== "all") {
       // Filter rows based on the specific value in the column
       const filteredRows = csvData.filter(function (row) {
         return row[columnToFilter] === valueToFilter;
@@ -81,22 +81,10 @@ function visualizeMap(valueToFilter) {
     r = [0, 5, 10, 20, 40];
     color_legend
       .domain(r)
-      .range([
-        "#f0f9e8",
-        "#bae4bc",
-        "#7bccc4",
-        "#43a2ca",
-        "#0868ac",
-      ]);
+      .range(["#f0f9e8", "#bae4bc", "#7bccc4", "#43a2ca", "#0868ac"]);
     color_legend_label
       .domain(r)
-      .range([
-        "#f0f9e8",
-        "#bae4bc",
-        "#7bccc4",
-        "#43a2ca",
-        "#0868ac",
-      ]);
+      .range(["#f0f9e8", "#bae4bc", "#7bccc4", "#43a2ca", "#0868ac"]);
 
     g.selectAll("path")
       .data(countries.features)
@@ -148,7 +136,11 @@ function visualizeMap(valueToFilter) {
       .text((d) => d);
 
     // Style the legend labels
-    legendLabels.style("font-size", "13px").style("fill", "black").style("fill", "black").style("font-weight", "bold");
+    legendLabels
+      .style("font-size", "13px")
+      .style("fill", "black")
+      .style("fill", "black")
+      .style("font-weight", "bold");
 
     function showTooltip(event, d) {
       tooltip
@@ -182,5 +174,60 @@ function visualizeMap(valueToFilter) {
       d3.select(this).attr("fill", null); // Optional: Remove the highlight on mouseout
       tooltip.style("display", "none");
     }
+
+    const select = document.getElementById("category-filter");
+    select.addEventListener ("change", function () {
+      updateMap(this.value);
+    });
+
+    function updateMap(valueToFilter) {
+      svg.selectAll("path").remove();
+
+      const columnToFilter = "category";
+      //    const valueToFilter = "Peace";
+      let result = valueToFilter ?? "all";
+
+
+      if (result !== "all") {
+        // Filter rows based on the specific value in the column
+        const filteredRows = csvData.filter(function (row) {
+          return row[columnToFilter] === valueToFilter;
+        });
+        // Perform operations on the filtered rows
+        filteredRows.forEach((row) => {
+          countrySize[row.iso_n3] = row;
+        });
+      } else {
+        topoJsonData.objects.countries.geometries.forEach((d) => {
+          countrySize[d.id] = d;
+        });
+      }
+
+      g.selectAll("path")
+      .data(countries.features)
+      .enter()
+      .append("path")
+      .attr("class", "dim-country")
+      .attr("d", pathGenerator)
+      .style("fill", (d) => {
+        var id = countrySize[d.id];
+        if (typeof id !== "undefined") {
+          if (typeof countrySize[d.id].Size === "undefined") {
+            return "#f0f9e8";
+          } else {
+            return color_legend(countrySize[d.id].Size);
+          }
+        } else {
+          return "#f0f9e8";
+        }
+      })
+      .style("stroke", "#9f9c97")
+      .style("stroke-width", "0.3px")
+      .on("mouseover", showTooltip)
+      .on("mouseout", hideTooltip);
+
+    }
   });
 }
+
+visualizeMap("all");
