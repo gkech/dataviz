@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body onload="main()">
+    <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <h1 class="display-4">Age Distribution of Nobel Prize Winners from 1901 to 2016</h1>
+          </div>
+        </div>
+      
+    
+        <label for="category-select">Select Category:</label>
+        <select id="category-select">
+          <option value="all">All Categories</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Medicine">Medicine</option>
+          <option value="Physics">Physics</option>
+          <option value="Economics">Economics</option>
+          <option value="Literature">Literature</option>
+          <option value="Peace">Peace</option>
+          <!-- Add more options for other categories -->
+        </select>
+      </div>
+      <svg id="chart" width="1500" height="900"></svg>
+    </div>
+
+      <div class="how-section1">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Malala Yousafzai</h4>
+                            <h4 class="subheading"> Nobel Peace Prize - Age 17.</h4>
+                            <p class="text-muted">She is the world's youngest Nobel Prize laureate, the second Pakistani and the first Pashtun to receive a Nobel Prize. Yousafzai is a human rights advocate for the education of women and children in her native homeland, Swat, where the Pakistani Taliban had at times banned girls from attending school.</p>
+            </div>
+            <div class="col-md-6 how-img">
+                <img src="./Malala_Yousafzai.jpg" class="rounded-circle img-fluid" alt=""/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Leonid Hurwicz</h4>
+                            <h4 class="subheading">Nobel Prize in Economics - Age 90.</h4>
+                            <p class="text-muted">In October 2007, Hurwicz shared the Nobel Memorial Prize in Economic Sciences with Eric Maskin of the Institute for Advanced Study and Roger Myerson of the University of Chicago "for having laid the foundations of mechanism design theory.</p>
+            </div>
+            <div class="col-md-6 how-img">
+                <img src="./leonid_hurwicz .jpg" class="rounded-circle img-fluid" alt=""/>
+            </div>
+        </div>
+       
+    </div>
+
+<script type="text/javascript" src="./try_10000.js"></script>
+
+</body>
+</html>
