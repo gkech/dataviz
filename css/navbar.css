@@ -1,7 +1,13 @@
 .navbar-nav .nav-item:hover .nav-link {
     color: blueviolet;
+    text-decoration: underline;
   }
   
 .navbar-custom {
 background-color: #4c9053; /* Set your desired background color here */
+}
+
+.active-link {
+  color: blueviolet;
+  text-decoration: underline;
 }

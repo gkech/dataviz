@@ -52,6 +52,7 @@
       <div class="center-image mb-5 mt-5">
         <img src="../images/noble-confused.png" class="img-fluid" />
       </div>
+      <!-- NAVIGATION -->
       <div
         class="h-100 d-flex align-items-center justify-content-center mb-5 mt-5"
       >
@@ -59,27 +60,48 @@
           class="navbar navbar-custom justify-content-md-center navbar-expand-lg bg-body-tertiary"
         >
           <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <button
+              id="collapse-button"
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbar"
+              aria-controls="navbar"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse justify-content-md-center"
+              id="navbar"
+            >
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <a
-                    class="nav-link active"
+                    class="nav-link active-link"
                     aria-current="page"
                     href="../index.html"
                     >Home</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="dashboards.html">Dashboard</a>
+                  <a class="nav-link active-link" href="dashboards.html"
+                    >Dashboard</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="presentation.html">Presentation</a>
+                  <a class="nav-link active-link" href="presentation.html"
+                    >Presentation</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
+                  <a class="nav-link active-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="credits.html">Credits</a>
+                  <a class="nav-link active-link" href="credits.html"
+                    >Credits</a
+                  >
                 </li>
               </ul>
             </div>
