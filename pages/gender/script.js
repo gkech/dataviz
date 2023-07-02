@@ -1,11 +1,11 @@
 // Select the SVG container
 const genderSvg = d3.select("#genderChart")
   .append("svg")
-  .attr("width", 600)
-  .attr("height", 400);
+  .attr("width", 500)
+  .attr("height", 240);
 
 // Set the margins and dimensions of the chart
-const genderMargin = { top: 20, right: 20, bottom: 50, left: 50 };
+const genderMargin = { top: 20, right: 20, bottom: 30, left: 50 };
 const genderWidth = +genderSvg.attr("width") - genderMargin.left - genderMargin.right;
 const genderHeight = +genderSvg.attr("height") - genderMargin.top - genderMargin.bottom;
 

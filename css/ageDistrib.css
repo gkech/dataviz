@@ -1,22 +1,32 @@
 .age_distr_info{
-    margin-top:-15%;
-    padding: 10%;
+    /* margin-top:-15%; */
+    /* padding: 10%; */
 }
 .age_distr_info h4{
-    font-weight: bold;
-    font-size: 30px;
+    /* font-weight: bold;
+    font-size: 30px; */
 }
-.age_distr_info .subheading{
-    font-size: 20px;
+.col-md-6 .subheading{
+    /* font-size: 20px; */
 }
-.age_distr_info .row
+.p-2 bd-highlight  .row
 {
-    margin-top: 10%;
+    /* margin-top: 5px;
+    text-align: left; */
 }
 .how-img 
 {
-    text-align: center;
+    /* text-align: center; */
 }
 .how-img img{
-    width: 40%;
+    width: 20%;
 }
+.rounded-circle {
+    width: 400px;
+}
+
+
+.col-md-6 {
+    margin-bottom: 5px; 
+}
+

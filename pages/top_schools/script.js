@@ -1,10 +1,10 @@
 d3.csv("../pages/top_schools/data.csv").then(function(data) {
     const margin = { top: 50, right: 20, bottom: 40, left: 180 };
-    const containerWidth = window.innerWidth * 0.5; // Chart container width
-    const containerHeight = window.innerHeight * 0.6; // chart container height
+    const containerWidth = window.innerWidth * 0.3; // Chart container width
+    const containerHeight = window.innerHeight * 0.35; // chart container height
     const width = containerWidth - margin.left - margin.right;
     const height = containerHeight - margin.top - margin.bottom;
-    const barHeight = 30;
+    const barHeight = 15;
 
     let aggregatedData = [];
 
@@ -45,7 +45,7 @@ d3.csv("../pages/top_schools/data.csv").then(function(data) {
             .attr("y", d => y(d.organization))
             .attr("width", d => Math.max(1, x(d.count))) // Set a minimum width for the bars
             .attr("height", y.bandwidth())
-            .attr("fill", "rgb(8, 104, 172)");
+            .attr("fill", "#c9b371");
 
         // Append text elements to display the count of each bar
         svg.selectAll(".count-label")

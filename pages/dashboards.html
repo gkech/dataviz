@@ -109,7 +109,7 @@
           </div>
         </nav>
       </div>
-      <!-- PAGE CONTENT GOES HERE -->
+      <!------------------------------------------- PAGE CONTENT GOES HERE ------------------------------------>
       <div class="container">
         <div class="text-center">
           <div class="d-flex justify-content-center">
@@ -125,61 +125,120 @@
               </select>
             </div>
           </div>
+          <!------------------------------------------- End of filters ------------------------------------>
           <div class="d-flex justify-content-center">
-            <div id="my_dataviz_map"></div>
-            <script src="map/script.js"></script>
-          </div>
-          <div class="d-flex justify-content-center">
-            Egb(67, 162, 202)x has novum soleat ceteros, cu mel graece populo phaedrum. Sit et
-            putant ornatus. Vel amet posse facer at, has an eros natum nominati.
-            Eam timeam signiferumque vituperatoribus te, eu euismod eloquentiam
-            ius. Per nihil utamur in, vel ei solum ignota dicunt. Pro an diam
-            explicari. Ad mutat denique pertinax his. Et tritani accusata mea,
-            sea vero legendos argumentum at, qui te feugiat accusam. Molestie
-            praesent similique an eum, persius legimus est id. Ei nibh laboramus
-            eam.
-          </div>
-          <div class="d-flex justify-content-center">
-            <div id="top-schools-chart"></div>
-            <script src="top_schools/script.js"></script>
-          </div> 
-          <!-- age distr start -->
-          <div class="d-flex justify-content-center">
-            <div id="legend"></div>
-            <div class="p-2 bd-highlight">
-              <svg id="ageDistr"  width="800" height="800"></svg> 
-            
-              <script src="age_distribution/try_10000.js"></script>
-            </div>
-            <div class="p-2 bd-highlight">
-              <div class="how-section1">
-                <div class="row">
-                    <div class="col-md-6">
-                        
-                        <h5>Malala Yousafzai</h5>
-                        
-                                    <h5 class="subheading"> Nobel Peace Prize - Age 17.</h5>
-                                    <p class="text-muted">She is the world's youngest Nobel Prize laureate, the second Pakistani and the first Pashtun to receive a Nobel Prize. Yousafzai is a human rights advocate for the education of women and children in her native homeland, Swat, where the Pakistani Taliban had at times banned girls from attending school.</p>
-                    </div>
-                    <div class="col-md-6 how-img">
-                        <img src="./age_distribution/Malala_Yousafzai.jpg" class="rounded-circle img-fluid" alt=""/>
-                    </div>
+            <div class="d-flex flex-column bd-highlight mb-3">
+                
+              <div class="p-2 bd-highlight">
+                <!-- First Part -->
+                <div class="d-flex flex-row bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
+                    <h5>Where did the brightest minds in history come from?</h5>
+                    <p>Here you can see how many nobel prizes each country has won</p>
+                    <div id="my_dataviz_map"></div>
+                    <script src="map/script.js"></script>
+                    <p>X% laureates are from United States blah blah blah United States sdjgfs
+                      shdfkjshdfjsdhfjdkfhhhhhhhhhhhhjsjf jskdhfsfhskhdfkshfdjs skjdfksjhfksdjf
+                      sjdfhksjhfjdhkfskfhkjsdf hsfkjdhfkjshdkjfsh shdkfhsdfj sjfhdkshfkshfkdshf
+                    </p>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <h5>Where did they study?</h5>
+                    <p>Top Organizations</p>
+                    <div id="top-schools-chart"></div>
+                    <script src="top_schools/script.js"></script>
+                    <p>X% laureates are from United States blah blah blah United States sdjgfs
+                      shdfkjshdfjsdhfjdkfhhhhhhhhhhhhjsjf jskdhfsfhskhdfkshfdjs skjdfksjhfksdjf
+                      sjdfhksjhfjdhkfskfhkjsdf hsfkjdhfkjshdkjfsh shdkfhsdfj sjfhdkshfkshfkdshf
+                    </p>
+                  </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Leonid Hurwicz</h5>
-                                    <h5 class="subheading">Nobel Prize in Economics - Age 90.</h5>
-                                    <p class="text-muted">In October 2007, Hurwicz shared the Nobel Memorial Prize in Economic Sciences with Eric Maskin of the Institute for Advanced Study and Roger Myerson of the University of Chicago "for having laid the foundations of mechanism design theory.</p>
-                    </div>
-                    <div class="col-md-6 how-img">
-                        <img src="./age_distribution/leonid_hurwicz .jpg" class="rounded-circle img-fluid" alt=""/>
-                    </div>
-                </div>
-              
+                <!-- End of first part -->
               </div>
+               <!-- Second Part -->
+              <div class="p-2 bd-highlight">
+                <div class="d-flex flex-row bd-highlight mb-1">
+                  <div class="p-2 bd-highlight">
+                      <h5>At what age did they get the Nobel?</h5>
+                      
+                      <p>Here you can see how many nobel prizes each country has won</p>
+                      <svg id="ageDistr"  width="750" height="400"></svg> 
+                
+                      <script src="age_distribution/try_10000.js"></script>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <h5>What about the gender?</h5>
+                    <p>How many women and men have won a nobel prize</p>
+                    <div class="d-flex flex-column bd-highlight mb-1">
+                      <div class="p-2 bd-highlight"> 
+                        <div class="donut_label" id="legend_donut"></div>
+                        <div id="donut"></div>
+                        <script src="donut/donut.js"></script>
+                      </div>
+                      <div class="p-2 bd-highlight">
+                        <div id="genderChart"></div>
+                        <script src="gender/script.js"></script>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+            
+              </div>
+              <div class="p-2 bd-highlight">
+                <div class="d-flex flex-row bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
+                    <img src="./age_distribution/Malala_Yousafzai.jpg" class="rounded-circle img-fluid" alt=""/>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                      <h5>Malala Yousafzai</h5>
+                      <h6 class="subheading"> Nobel Peace Prize - Age 17.</h6>
+                      <p class="text-muted">She is the world's youngest Nobel Prize laureate, the second Pakistani and the first Pashtun to receive a Nobel Prize. Yousafzai is a human rights advocate for the education of women and children in her native homeland, Swat, where the Pakistani Taliban had at times banned girls from attending school.</p>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <img src="./age_distribution/leonid_hurwicz .jpg" class="rounded-circle img-fluid" alt=""/>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <h5>Leonid Hurwicz</h5>
+                    <h5 class="subheading">Nobel Prize in Economics - Age 90.</h5>
+                    <p class="text-muted">In October 2007, Hurwicz shared the Nobel Memorial Prize in Economic Sciences with Eric Maskin of the Institute for Advanced Study and Roger Myerson of the University of Chicago "for having laid the foundations of mechanism design theory.</p>
+                  </div>
+                </div>
+
+              </div>
+              <!-- End of second part -->
+               <!-- Third Part -->
+               <div class="p-2 bd-highlight">
+                <h5>How many years did they wait?</h5>
+                <p>explain explain explain</p>
+                <div id="legend" style="height: 5px;"></div>
+                <div id="my_dataviz"></div>
+                <div class="align-self-center">
+                  Ex has novum soleat ceteros, cu mel graece populo phaedrum. Sit et
+                  putant ornatus. Vel amet posse facer at, has an eros natum
+                  nominati. Eam timeam signiferumque vituperatoribus te, eu euismod
+                  eloquentiam ius. Per nihil utamur in, vel ei solum ignota dicunt.
+                  Pro an diam explicari. Ad mutat denique pertinax his. Et tritani
+                  accusata mea, sea vero legendos argumentum at, qui te feugiat
+                  accusam. Molestie praesent similique an eum, persius legimus est
+                  id. Ei nibh laboramus eam.
+                </div>
+                <script src="years2win/script.js"></script>
+               </div>
+               <!-- End of Third Part -->
+  
+              
+            
             </div>
+          
           </div>
-          <div class="d-flex justify-content-center">
+          
+          
+          
+          
+          
+          <!----------------George----------->
+          <!-- <div class="d-flex justify-content-center">
             <div id="legend"></div>
             <div id="my_dataviz"></div>
             <div class="align-self-center">
@@ -203,12 +262,31 @@
             sea vero legendos argumentum at, qui te feugiat accusam. Molestie
             praesent similique an eum, persius legimus est id. Ei nibh laboramus
             eam.
+          </div> -->
+           <!----------------George end----------->
+           <!----------------Dim----------->
+          <!-- <div class="d-flex justify-content-center">
+            <div id="my_dataviz_map"></div>
+            <script src="map/script.js"></script>
           </div>
-          <!-- age distr end -->      
-          <div class="d-flex justify-content-start">
-            <div id="genderChart"></div>
-            <script src="gender/script.js"></script>
-          </div>   
+          <div class="d-flex justify-content-center">
+            Egb(67, 162, 202)x has novum soleat ceteros, cu mel graece populo phaedrum. Sit et
+            putant ornatus. Vel amet posse facer at, has an eros natum nominati.
+            Eam timeam signiferumque vituperatoribus te, eu euismod eloquentiam
+            ius. Per nihil utamur in, vel ei solum ignota dicunt. Pro an diam
+            explicari. Ad mutat denique pertinax his. Et tritani accusata mea,
+            sea vero legendos argumentum at, qui te feugiat accusam. Molestie
+            praesent similique an eum, persius legimus est id. Ei nibh laboramus
+            eam.
+          </div> -->
+          <!----------------Dim end----------->
+          <!----------------Kel  ----------->
+          <div class="d-flex justify-content-center">
+            <div id="top-schools-chart"></div>
+            <script src="top_schools/script.js"></script>
+          </div> 
+          <!----------------Kel end ----------->
+  
         </div>
       </div>
       <div

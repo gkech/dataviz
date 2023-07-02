@@ -1,8 +1,8 @@
 // set the dimensions and margins of the graph
 function drawYears2Win() {
   var margin = { top: 50, right: 60, bottom: 50, left: 60 },
-    width = 800 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    width = 800- margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
 
   var svg = d3
     .select("#my_dataviz")
@@ -17,7 +17,7 @@ function drawYears2Win() {
       // Define color scale for Nobel categories
       var colorScale = d3
         .scaleOrdinal()
-        .range(["#7fc97f", "#beaed4", "#fdc086"]);
+        .range(["#895570", "#debf7c", "#8cb0b8"]);
 
       data.forEach(function (d) {
         d.prize_year = parseInt(d.prize_year);
@@ -202,8 +202,7 @@ function drawYears2Win() {
 
       legendContainer
         .append("div")
-        .attr("class", "y2w-legend-title")
-        .text("Legend");
+        .attr("class", "y2w-legend-title");
 
       var legendItems = legendContainer
         .selectAll(".y2w-legend-item")

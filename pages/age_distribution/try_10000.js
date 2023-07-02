@@ -1,8 +1,8 @@
 function drawAgeDistribution() {
   var svg1 = d3.select("#ageDistr"),
-    margin = { top: 20, right: 20, bottom: 30, left: 40 },
-    width = 800 - margin.left - margin.right,
-    height = 650 - margin.top - margin.bottom,
+    margin = { top: 20, right: 10, bottom: 30, left: 40 },
+    width = 700 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom,
     g = svg1
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -14,20 +14,31 @@ function drawAgeDistribution() {
   var z = d3
     .scaleOrdinal()
     .range([
-      "#98abc5",
-      "#8a89a6",
-      "#7b6888",
-      "#6b486b",
-      "#a05d56",
-      "#d0743c",
-      "#ff8c00",
+      "#4c6f7d",
+      "#8cb0b8",
+      "#e0c892",
+      "#d49770",   
+      "#bd6484",
+      "#733d6a",
+
+      // '#6f9693',
+      // '#9981a3',
+      // '#9cd6c9',
+      // '#e8d192',
+      // '#de766f',
+      // '#9e4d7c'
+
+
+
+
+
     ]);
 
   d3.csv("../pages/age_distribution/age_groups.csv", function (d, i, columns) {
     for (i = 1, t = 0; i < columns.length; ++i)
       t += d[columns[i]] = +d[columns[i]];
     d.total = t;
-    console.log(d.total);
+    // console.log(d.total);
     return d;
   }).then(function (data) {
 

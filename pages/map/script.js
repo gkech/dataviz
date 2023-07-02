@@ -1,6 +1,6 @@
 function visualizeMap(valueToFilter) {
-  const width = "800";
-  const height = "500";
+  const width = "500";
+  const height = "350";
 
   const columnToFilter = "category";
   //    const valueToFilter = "Peace";
@@ -27,7 +27,7 @@ function visualizeMap(valueToFilter) {
 
   const projection = d3
     .geoNaturalEarth1()
-    .scale(150)
+    .scale(100)
     .translate([width / 2, height / 1.9]);
   const pathGenerator = d3.geoPath().projection(projection);
 
@@ -35,7 +35,7 @@ function visualizeMap(valueToFilter) {
 
   // Define the legend values
   const legendValues = [0, 5, 10, 20, 40];
-  const legend = svg.append("g").attr("transform", `translate(20, 480)`);
+  const legend = svg.append("g").attr("transform", `translate(10, 320)`);
 
   svg.call(
     d3.zoom().on("zoom", (event) => {
@@ -82,10 +82,10 @@ function visualizeMap(valueToFilter) {
     r = [0, 5, 10, 20, 40];
     color_legend
       .domain(r)
-      .range(["#f0f9e8", "#bae4bc", "#7bccc4", "#43a2ca", "#0868ac"]);
+      .range(["#ddeaee", "#a9cad6", "#75abbd", "#4b879b", "#325a67"]);
     color_legend_label
       .domain(r)
-      .range(["#f0f9e8", "#bae4bc", "#7bccc4", "#43a2ca", "#0868ac"]);
+      .range(["#ddeaee", "#a9cad6", "#75abbd", "#4b879b", "#325a67"]);
 
     g.selectAll("path")
       .data(countries.features)
@@ -97,12 +97,12 @@ function visualizeMap(valueToFilter) {
         var id = countrySize[d.id];
         if (typeof id !== "undefined") {
           if (typeof countrySize[d.id].Size === "undefined") {
-            return "#f0f9e8";
+            return "#fff2eb";
           } else {
             return color_legend(countrySize[d.id].Size);
           }
         } else {
-          return "#f0f9e8";
+          return "#fff2eb";
         }
       })
       .style("stroke", "#9f9c97")
