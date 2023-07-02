@@ -54,7 +54,7 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
   const tooltip = d3.select("body").append("div")
     .attr("class", "tooltip")
     .style("position", "absolute")
-    .style("visibility", "hidden")
+    .style("opacity", 0)
     .style("background", "#fff")
     .style("border", "1px solid #000")
     .style("padding", "5px");
@@ -74,6 +74,18 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
     // Clear existing chart elements
     genderGroup.selectAll(".line").remove();
     genderGroup.selectAll(".axis").remove();
+    genderGroup.selectAll(".y-axis").remove();
+    genderGroup.selectAll(".area").remove();
+
+    // Update the y-axis scale to the new data
+    genderY.domain([0, d3.max(data, d => Math.max(d.maleCount, d.femaleCount))]).nice();
+
+    // Generate tick values for the y-axis
+    const tickCount = 10;
+    const tickValues = genderY.ticks(tickCount).map(Math.round); // Generate tick values and round them
+
+    // Filter out repeated values from the tick values array
+    const distinctTickValues = Array.from(new Set(tickValues));
 
     // Draw the male line
     genderGroup.append("path")
@@ -83,7 +95,7 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
     .attr("stroke", "steelblue")
     .attr("stroke-width", 2)
     .attr("d", genderLineMale)
-    .on("mouseover", function(d) {
+    .on("mouseover", function(event, d) {
         genderGroup.on("mousemove", function(event) {
             const mouseX = d3.pointer(event, this)[0];  // get the x position of the mouse
             const year = Math.round(genderX.invert(mouseX));  // convert this position to a year
@@ -93,13 +105,23 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
 
             console.log("Year: " + year + "<br/>Male Count: " + counts)
             tooltip.html("Year: " + year + "<br/>Male Count: " + counts)
-              .style("left", (event.pageX) + "px")
-              .style("top", (event.pageY) + "px")
-              .style("visibility", "visible");
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY + 10) + "px")
+            .style("opacity", 1);
           }).on("mouseout", function() {
-            tooltip.style("visibility", "hidden");
+            tooltip.style("opacity", 0);
           });
     })
+
+    // Create the area under the male line
+    genderGroup.append("path")
+    .datum(data)
+    .attr("class", "area male-area")
+    .attr("d", d3.area()
+      .x(d => genderX(d.year))
+      .y0(genderHeight)
+      .y1(d => genderY(d.maleCount))
+    );
 
     // Draw the female line
     genderGroup.append("path")
@@ -109,7 +131,7 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
     .attr("stroke", "pink")
     .attr("stroke-width", 2)
     .attr("d", genderLineFemale)
-    .on("mouseover", function(d) {
+    .on("mouseover", function(event, d) {
         genderGroup.on("mousemove", function(event) {
             const mouseX = d3.pointer(event, this)[0];  // get the x position of the mouse
             const year = Math.round(genderX.invert(mouseX));  // convert this position to a year
@@ -119,14 +141,23 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
 
             console.log("Year: " + year + "<br/>Female Count: " + counts)
             tooltip.html("Year: " + year + "<br/>Female Count: " + counts)
-              .style("left", (event.pageX + 5) + "px")
-              .style("top", (event.pageY - 28) + "px")
-              .style("visibility", "visible");
+              .style("left", (event.pageX + 10) + "px")
+              .style("top", (event.pageY + 10) + "px")
+              .style("opacity", 1);
           }).on("mouseout", function() {
-            tooltip.style("visibility", "hidden");
+            tooltip.style("opacity", 0);
           });
-            })
+        })
 
+    // Create the area under the female line
+    genderGroup.append("path")
+      .datum(data)
+      .attr("class", "area female-area")
+      .attr("d", d3.area()
+        .x(d => genderX(d.year))
+        .y0(genderHeight)
+        .y1(d => genderY(d.femaleCount))
+      );
 
     // Add the x-axis
     genderGroup.append("g")
@@ -136,8 +167,8 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
 
     // Add the y-axis
     genderGroup.append("g")
-      .attr("class", "axis y-axis")
-      .call(d3.axisLeft(genderY));
+      .attr("class", "y-axis")
+      .call(d3.axisLeft(genderY).tickValues(distinctTickValues).tickFormat(d3.format("d")));
 
     // Add the x-axis label
     genderGroup.append("text")
@@ -156,29 +187,6 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .text("Number of Laureates");
-
-    // Add the legend
-    const legend = genderGroup.selectAll('.legend')
-      .data(['Male', 'Female'])
-      .enter()
-      .append('g')
-      .attr('class', 'legend')
-      .attr('transform', (d, i) => `translate(0, ${i * 20})`);
-
-    legend.append('rect')
-      .attr('x', 10) // Position at the beginning of the x axis
-      .attr('width', 10)
-      .attr('height', 10)
-      .style('fill', (d, i) => (i === 0) ? "steelblue" : "pink");
-    
-    legend.append('text')
-      .attr('x', 30) // Position after the rectangle
-      .attr('y', 5)
-      .attr('dy', '.35em')
-      .style('text-anchor', 'start') // Align text to the start of the element
-      .style('font-size', '14px') // Adjust the font size here
-      .text(d => d);
-  }
 
   // Function to update the chart
   function updateChart(data, selectedCategory) {
