@@ -1,8 +1,8 @@
 // set the dimensions and margins of the graph
 function drawYears2Win() {
   var margin = { top: 50, right: 60, bottom: 50, left: 60 },
-    width = 650 - margin.left - margin.right,
-    height = 650 - margin.top - margin.bottom;
+    width = 800 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
   var svg = d3
     .select("#my_dataviz")
@@ -142,7 +142,7 @@ function drawYears2Win() {
         .attr("cy", function (d) {
           return y(d.years_to_win);
         })
-        .attr("r", 9)
+        .attr("r", 5.5)
         .style("fill", function (d) {
           return colorScale(d.category);
         })
@@ -179,7 +179,7 @@ function drawYears2Win() {
           .attr("cy", function (d) {
             return y(d.years_to_win);
           })
-          .attr("r", 9)
+          .attr("r", 5.5)
           .style("fill", function (d) {
             return colorScale(d.category);
           })
