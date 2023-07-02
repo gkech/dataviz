@@ -148,6 +148,7 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
             tooltip.style("opacity", 0);
           });
         })
+    }
 
     // Create the area under the female line
     genderGroup.append("path")
