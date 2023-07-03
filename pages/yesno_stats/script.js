@@ -1,8 +1,8 @@
 function drawYesNoPublications() {
   // set the dimensions and margins of the graph
-  const margin = { top: 70, right: 10, bottom: 100, left: 100 },
+  const margin = { top: 70, right: 10, bottom: 90, left: 100 },
     width = 500 - margin.left - margin.right,
-    height = 270 - margin.top - margin.bottom;
+    height = 250 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   const svg = d3

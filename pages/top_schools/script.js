@@ -1,8 +1,8 @@
 d3.csv("../pages/top_schools/data.csv").then(function(data) {
-    const margin = { top: 50, right: 10, bottom: 40, left: 180 };
+    const margin = { top: 50, right: 10, bottom: 40, left: 170 };
     const containerWidth = window.innerWidth * 0.3; // Chart container width
     const containerHeight = 280; // chart container height
-    const width = 360;
+    const width = 300;
     const height = containerHeight - margin.top - margin.bottom;
     const barHeight = 15;
 
@@ -28,7 +28,7 @@ d3.csv("../pages/top_schools/data.csv").then(function(data) {
         const chartContainer = d3.select("#top-schools-chart")
             .style("overflow-y", "scroll") // Enable vertical scrolling
             .style("max-height", `${containerHeight}px`) // Max height for the chart container
-            .style("width", '700px'); // Width for the chart container
+            .style("width", '600px'); // Width for the chart container
 
         chartContainer.selectAll("svg").remove();
 
