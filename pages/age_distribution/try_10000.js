@@ -29,8 +29,9 @@ function drawAgeDistribution() {
       // "#ba6245",
      
       "#ead49f",
-      "#d6b068",
-      "#bc8435",
+      //"#d6b068",
+      "#e8ad5a",
+      "#bf7347"
 
 
 
