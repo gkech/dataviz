@@ -17,7 +17,7 @@ function drawYears2Win() {
       // Define color scale for Nobel categories
       var colorScale = d3
         .scaleOrdinal()
-        .range(["#895570", "#debf7c", "#8cb0b8"]);
+        .range(["#436475", "#debf7c", "#d1933b"]);
 
       data.forEach(function (d) {
         d.prize_year = parseInt(d.prize_year);
@@ -39,6 +39,7 @@ function drawYears2Win() {
         .append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x).tickFormat(d3.format("d")));
+      
 
       // Add X axis label
       svg
@@ -59,6 +60,15 @@ function drawYears2Win() {
         )
         .range([height, 0]);
       svg.append("g").call(d3.axisLeft(y));
+
+      const zoom = d3.zoom()
+      .scaleExtent([0.5, 32])
+      .on("zoom", zoomed);
+
+      svg.call(zoom);
+      function zoomed(event) {
+        svg.attr('transform', event.transform)
+      }
 
       // Add Y axis label
       svg
@@ -88,7 +98,7 @@ function drawYears2Win() {
       var mouseover = function (event, d) {
         tooltip.transition().duration(1).style("opacity", 1);
         d3.select(this)
-          .style("stroke", "red")
+          .style("stroke", '#ffc124')
           .style("stroke-width", 4)
           .style("opacity", 1);
       };

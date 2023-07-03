@@ -1,8 +1,8 @@
 function drawDonut()
 {
-    margin = { top: 10, right: 10, bottom: 10, left: 40 },
-    width = 160 - margin.left - margin.right,
-    height = 160 - margin.top - margin.bottom;
+    margin = { top: 20, right: 10, bottom: 10, left: 40 },
+    width = 230 - margin.left - margin.right,
+    height = 230 - margin.top - margin.bottom;
 
     var svg = d3.select("#donut")
         .append('svg')
@@ -13,7 +13,7 @@ function drawDonut()
     .attr('transform', 'translate(' + (width/2) + ',' + (height/2) + ')');
    
 
-    var thickness = 15;
+    var thickness = 30;
     var duration = 750;
 
     var radius = Math.min(width, height) / 2;
@@ -21,7 +21,7 @@ function drawDonut()
     classes= ['Female', 'Male']
     var color = d3.scaleOrdinal()
         .domain(classes)
-        .range(['#d19e52','#853682']);
+        .range(['#dbaa5a','#659ea3']);
     
     
     d3.csv("/dataviz/pages/donut/male_female_satistics.csv")
@@ -144,15 +144,6 @@ function drawDonut()
             .attr('y', (d, i) => yOffset + (legendItemSize + legendSpacing) * i + 12)
             .text(d => d); 
 
-         
-
-       
-        
-
-
-       
-
-     
             
 
     });

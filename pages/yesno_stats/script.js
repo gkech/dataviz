@@ -1,8 +1,8 @@
 function drawYesNoPublications() {
   // set the dimensions and margins of the graph
-  const margin = { top: 100, right: 100, bottom: 100, left: 100 },
-    width = 600 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+  const margin = { top: 70, right: 10, bottom: 100, left: 100 },
+    width = 500 - margin.left - margin.right,
+    height = 270 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   const svg = d3
@@ -50,8 +50,9 @@ function drawYesNoPublications() {
     // Build color scale
     const myColor = d3
       .scaleSequential()
-      .interpolator(d3.interpolateInferno)
-      .domain([0, 1]);
+      .interpolator(d3.interpolate("#cbdfe6","#42788a"))
+      // .range([d3.interpolateBrBG('#BF944E'), d3.interpolateBrBG("#42788a")])
+      .domain([0, 2]);
 
     // Create a tooltip
     const tooltip = d3
@@ -126,24 +127,24 @@ function drawYesNoPublications() {
       .on("mouseleave", mouseleave);
 
     // Add title to the graph
-    svg
-      .append("text")
-      .attr("x", 0)
-      .attr("y", -50)
-      .attr("text-anchor", "left")
-      .style("font-size", "22px")
-      .text("Test Title");
+    // svg
+    //   .append("text")
+    //   .attr("x", 0)
+    //   .attr("y", -50)
+    //   .attr("text-anchor", "left")
+    //   .style("font-size", "22px")
+    //   .text("Test Title");
 
-    // Add subtitle to the graph
-    svg
-      .append("text")
-      .attr("x", 0)
-      .attr("y", -20)
-      .attr("text-anchor", "left")
-      .style("font-size", "14px")
-      .style("fill", "grey")
-      .style("max-width", 400)
-      .text("Test Subtitle");
+    // // Add subtitle to the graph
+    // svg
+    //   .append("text")
+    //   .attr("x", 0)
+    //   .attr("y", -20)
+    //   .attr("text-anchor", "left")
+    //   .style("font-size", "14px")
+    //   .style("fill", "grey")
+    //   .style("max-width", 400)
+    //   .text("Test Subtitle");
   });
 }
 

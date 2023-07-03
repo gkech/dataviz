@@ -1,6 +1,6 @@
 function visualizeMap(valueToFilter) {
-  const width = "500";
-  const height = "350";
+  const width = "700";
+  const height = "300";
 
   const columnToFilter = "category";
   //    const valueToFilter = "Peace";
@@ -27,15 +27,15 @@ function visualizeMap(valueToFilter) {
 
   const projection = d3
     .geoNaturalEarth1()
-    .scale(100)
-    .translate([width / 2, height / 1.9]);
+    .scale(120)
+    .translate([width / 2, height / 2]);
   const pathGenerator = d3.geoPath().projection(projection);
 
   const g = svg.append("g");
 
   // Define the legend values
   const legendValues = [0, 5, 10, 20, 40];
-  const legend = svg.append("g").attr("transform", `translate(10, 320)`);
+  const legend = svg.append("g").attr("transform", `translate(10, 270)`);
 
   svg.call(
     d3.zoom().on("zoom", (event) => {
@@ -82,10 +82,10 @@ function visualizeMap(valueToFilter) {
     r = [0, 5, 10, 20, 40];
     color_legend
       .domain(r)
-      .range(["#ddeaee", "#a9cad6", "#75abbd", "#4b879b", "#325a67"]);
+      .range(["#cbdfe6", "#98c0cd", "#64a0b4", "#42788a", "#294b56"]);
     color_legend_label
       .domain(r)
-      .range(["#ddeaee", "#a9cad6", "#75abbd", "#4b879b", "#325a67"]);
+      .range(["#cbdfe6", "#98c0cd", "#64a0b4", "#42788a", "#294b56"]);
 
     g.selectAll("path")
       .data(countries.features)
@@ -97,12 +97,12 @@ function visualizeMap(valueToFilter) {
         var id = countrySize[d.id];
         if (typeof id !== "undefined") {
           if (typeof countrySize[d.id].Size === "undefined") {
-            return "#fff2eb";
+            return "#ddeaee";
           } else {
             return color_legend(countrySize[d.id].Size);
           }
         } else {
-          return "#fff2eb";
+          return "#ddeaee";
         }
       })
       .style("stroke", "#9f9c97")
@@ -230,12 +230,12 @@ function visualizeMap(valueToFilter) {
           var id = countrySize[d.id];
           if (typeof id !== "undefined") {
             if (typeof countrySize[d.id].Size === "undefined") {
-              return "#f0f9e8";
+              return "#ddeaee";
             } else {
               return color_legend(countrySize[d.id].Size);
             }
           } else {
-            return "#f0f9e8";
+            return "#ddeaee";
           }
         })
         .style("stroke", "#9f9c97")

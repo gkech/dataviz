@@ -1,7 +1,7 @@
 function drawAgeDistribution() {
   var svg1 = d3.select("#ageDistr"),
     margin = { top: 20, right: 10, bottom: 30, left: 40 },
-    width = 700 - margin.left - margin.right,
+    width = 900 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom,
     g = svg1
       .append("g")
@@ -14,19 +14,26 @@ function drawAgeDistribution() {
   var z = d3
     .scaleOrdinal()
     .range([
-      "#4c6f7d",
-      "#8cb0b8",
-      "#e0c892",
-      "#d49770",   
-      "#bd6484",
-      "#733d6a",
+      // "#4c6f7d",
+      // "#8abfb3",
+      // "#89ab82",
+      // "#e0c892",
+      // "#cc9166",   
+      // "#ba6245",
+      
+      '#324c59',
+      '#659ea3',
+      '#a3cccb',
+      // "#e3c47d",
+      // "#cc9166",   
+      // "#ba6245",
+     
+      "#ead49f",
+      "#d6b068",
+      "#bc8435",
 
-      // '#6f9693',
-      // '#9981a3',
-      // '#9cd6c9',
-      // '#e8d192',
-      // '#de766f',
-      // '#9e4d7c'
+
+
 
 
 

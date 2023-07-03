@@ -1,11 +1,11 @@
 // Select the SVG container
 const genderSvg = d3.select("#genderChart")
   .append("svg")
-  .attr("width", 500)
-  .attr("height", 240);
+  .attr("width", 600)
+  .attr("height", 230);
 
 // Set the margins and dimensions of the chart
-const genderMargin = { top: 20, right: 20, bottom: 30, left: 50 };
+const genderMargin = { top: 10, right: 20, bottom: 30, left: 50 };
 const genderWidth = +genderSvg.attr("width") - genderMargin.left - genderMargin.right;
 const genderHeight = +genderSvg.attr("height") - genderMargin.top - genderMargin.bottom;
 
@@ -92,8 +92,8 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
     .datum(data)
     .attr("class", "line")
     .attr("fill", "none")
-    .attr("stroke", "steelblue")
-    .attr("stroke-width", 2)
+    .attr("stroke", "#659ea3")
+    .attr("stroke-width", 2.5)
     .attr("d", genderLineMale)
     .on("mouseover", function(event, d) {
         genderGroup.on("mousemove", function(event) {
@@ -127,9 +127,10 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
     genderGroup.append("path")
     .datum(data)
     .attr("class", "line")
-    .attr("fill", "none")
-    .attr("stroke", "pink")
-    .attr("stroke-width", 2)
+    .attr("fill", "#dbaa5a")
+    .attr("fill-opacity", 0.5)
+    .attr("stroke", "#dbaa5a")
+    .attr("stroke-width", 2.4)
     .attr("d", genderLineFemale)
     .on("mouseover", function(event, d) {
         genderGroup.on("mousemove", function(event) {
