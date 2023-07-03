@@ -1,5 +1,5 @@
 function visualizeMap(valueToFilter) {
-  const width = "700";
+  const width = "800";
   const height = "300";
 
   const columnToFilter = "category";
@@ -44,7 +44,7 @@ function visualizeMap(valueToFilter) {
   );
 
   const countryName = {};
-  const countrySize = {};
+  let countrySize = {};
 
   const color_legend = d3.scaleThreshold();
   const color_legend_label = d3.scaleThreshold();
@@ -79,7 +79,9 @@ function visualizeMap(valueToFilter) {
       });
     }
 
-    r = [0, 5, 10, 20, 40];
+    console.log(countrySize[826]);
+
+    r = [0, 5, 10, 30, 100];
     color_legend
       .domain(r)
       .range(["#cbdfe6", "#98c0cd", "#64a0b4", "#42788a", "#294b56"]);
@@ -93,6 +95,10 @@ function visualizeMap(valueToFilter) {
       .append("path")
       .attr("class", "dim-country")
       .attr("d", pathGenerator)
+      .style("stroke", "#9f9c97")
+      .style("stroke-width", "0.3px")
+      .on("mouseover", showTooltip)
+      .on("mouseout", hideTooltip)
       .style("fill", (d) => {
         var id = countrySize[d.id];
         if (typeof id !== "undefined") {
@@ -105,10 +111,7 @@ function visualizeMap(valueToFilter) {
           return "#ddeaee";
         }
       })
-      .style("stroke", "#9f9c97")
-      .style("stroke-width", "0.3px")
-      .on("mouseover", showTooltip)
-      .on("mouseout", hideTooltip);
+      ;
 
     const spacing = 40;
     // Create color legend rectangles
@@ -143,6 +146,11 @@ function visualizeMap(valueToFilter) {
       .style("fill", "black")
       .style("font-weight", "bold");
 
+    const select = document.getElementById("category-filter");
+    select.addEventListener("change", function () {
+      updateMap(this.value);
+    });
+
     function showTooltip(event, d) {
       tooltip
         .style("display", "block")
@@ -159,10 +167,11 @@ function visualizeMap(valueToFilter) {
         size = "0"; // Replace undefined with a zero
       }
 
-      category = countrySize[d.id].category;
-      if (typeof category === "undefined") {
-        category = "All";
-      }
+//      category = countrySize[d.id].category;
+        category = select.value;
+//      if (typeof category === "undefined" ) {
+//        category = "All";
+//      }
 
       nobel = "Nobel Prize";
       if (greaterThanOne(size)) {
@@ -193,15 +202,19 @@ function visualizeMap(valueToFilter) {
       tooltip.style("display", "none");
     }
 
-    const select = document.getElementById("category-filter");
-    select.addEventListener("change", function () {
-      updateMap(this.value);
-    });
+    console.log(countrySize);
 
     function updateMap(valueToFilter) {
       svg.selectAll("path").remove();
 
-      const columnToFilter = "category";
+      Object.keys(countrySize).forEach(key => {
+            delete countrySize[key];
+       });
+
+       console.log(countrySize);
+
+//      countrySize = {};
+//      const columnToFilter = "category";
       //    const valueToFilter = "Peace";
       let result = valueToFilter ?? "all";
 
@@ -214,11 +227,14 @@ function visualizeMap(valueToFilter) {
         filteredRows.forEach((row) => {
           countrySize[row.iso_n3] = row;
         });
-      } else {
+      }
+      else {
         topoJsonData.objects.countries.geometries.forEach((d) => {
           countrySize[d.id] = d;
         });
       }
+      console.log("dk 2");
+      console.log(countrySize);
 
       g.selectAll("path")
         .data(countries.features)
@@ -229,9 +245,12 @@ function visualizeMap(valueToFilter) {
         .style("fill", (d) => {
           var id = countrySize[d.id];
           if (typeof id !== "undefined") {
-            if (typeof countrySize[d.id].Size === "undefined") {
+            if( countrySize[862].Size === '0'){
+            console.log(countrySize[862].Size);}
+            if (typeof id.Size === "undefined" || id.Size === '0') {
               return "#ddeaee";
-            } else {
+            }
+            else {
               return color_legend(countrySize[d.id].Size);
             }
           } else {
@@ -244,6 +263,52 @@ function visualizeMap(valueToFilter) {
         .on("mouseout", hideTooltip);
     }
   });
-}
+};
+
+function circle() {
+
+    const svg = d3.select("#circle")
+      .append("svg")
+      .attr("width", 400)
+      .attr("height", 300);
+
+
+    // Define the data for the circles and text
+    const data = [
+      { cx: 50, cy: 50, r: 40, text: "Circle 1" },
+      { cx: 50, cy: 150, r: 30, text: "Circle 2" },
+      { cx: 50, cy: 250, r: 20, text: "Circle 3" }
+    ];
+
+    // Create the circles
+    const circles = svg.selectAll("circle")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", d => d.cx)
+      .attr("cy", d => d.cy)
+      .attr("r", d => d.r)
+      .attr("fill", "steelblue");
+
+     console.log("circles");
+     console.log(circles);
+
+    // Create the text labels
+    const labels = svg.selectAll("text")
+      .data(data)
+      .enter()
+      .append("text")
+      .attr("x", d => d.cx + d.r + 10)
+      .attr("y", d => d.cy)
+      .text(d => d.text)
+      .attr("fill", "black");
+
+    // Apply flex layout
+    svg.style("display", "flex")
+      .style("flex-direction", "column")
+      .style("align-items", "center");
+
+};
 
 visualizeMap("all");
+circle();
