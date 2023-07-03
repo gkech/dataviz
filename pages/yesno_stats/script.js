@@ -51,8 +51,8 @@ function drawYesNoPublications() {
     const myColor = d3
       .scaleSequential()
       // https://github.com/d3/d3-scale-chromatic
-      .interpolator( d3.interpolateYlOrBr)
-      //.interpolator(d3.interpolate('#046e78', '#a2eef5'))
+      //.interpolator( d3.interpolateBlues)
+      .interpolator(d3.interpolate( '#cbf1f5', '#046e78'))
       .domain([0, 4]);
 
     // Create a tooltip
