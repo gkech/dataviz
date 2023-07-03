@@ -50,9 +50,9 @@ function drawYesNoPublications() {
     // Build color scale
     const myColor = d3
       .scaleSequential()
-      .interpolator(d3.interpolate("#cbdfe6","#42788a"))
-      // .range([d3.interpolateBrBG('#BF944E'), d3.interpolateBrBG("#42788a")])
-      .domain([0, 2]);
+      // https://github.com/d3/d3-scale-chromatic
+      .interpolator(d3.interpolateInferno)
+      .domain([0, 4]);
 
     // Create a tooltip
     const tooltip = d3
