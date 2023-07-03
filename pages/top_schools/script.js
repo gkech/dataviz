@@ -8,7 +8,16 @@ d3.csv("../pages/top_schools/data.csv").then(function(data) {
 
     let aggregatedData = [];
 
-    const drawChart = (data) => {
+const drawChart = (data, selectedCategory) => {
+        // Check if the data array is empty and how a message instead of the chart
+        if (data.length === 0) {
+            // Show a message instead of the chart
+            d3.select("#top-schools-chart")
+              .html('<div class="no-data-message">No data available for this category</div>')                
+              .style("overflow-y", "hidden");
+            return;
+        }
+
         const chartHeight = data.length * barHeight;
 
         let maxCount = d3.max(data, d => d.count);
@@ -38,6 +47,22 @@ d3.csv("../pages/top_schools/data.csv").then(function(data) {
             .append("g")
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
+        
+        let barfill = "rgb(35, 166, 179)";
+        if (selectedCategory === 'Chemistry') {
+            barfill = "#324c59";
+        } else if (selectedCategory === 'Physics') {
+            barfill = "#bc8435";
+        } else if (selectedCategory === 'Medicine') {
+            barfill = "#ead49f";
+        } else if (selectedCategory === 'Economics') {
+            barfill = "#659ea3";
+        } else if (selectedCategory === 'Peace') {
+            barfill = "#d6b068";
+        } else if (selectedCategory === 'Literature') {
+            barfill = "#a3cccb";
+        }
+
         svg.selectAll("rect")
             .data(data)
             .enter()
@@ -45,7 +70,7 @@ d3.csv("../pages/top_schools/data.csv").then(function(data) {
             .attr("y", d => y(d.organization))
             .attr("width", d => Math.max(1, x(d.count))) // Set a minimum width for the bars
             .attr("height", y.bandwidth())
-            .attr("fill", "#BF944E");
+            .attr("fill", barfill);
 
         // Append text elements to display the count of each bar
         svg.selectAll(".count-label")
@@ -110,7 +135,7 @@ d3.csv("../pages/top_schools/data.csv").then(function(data) {
         // Sort the aggregatedData array in descending order based on the count
         aggregatedData.sort((a, b) => a.count - b.count);
 
-        drawChart(aggregatedData);
+        drawChart(aggregatedData, selectedCategory);
     };
 
     // Add change event listener to the category filter dropdown
