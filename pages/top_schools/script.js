@@ -10,12 +10,16 @@ d3.csv("../pages/top_schools/data.csv").then(function(data) {
 
 const drawChart = (data, selectedCategory) => {
         // Check if the data array is empty and how a message instead of the chart
-        if (data.length === 0) {
+        if (selectedCategory == "Literature") {
             // Show a message instead of the chart
             d3.select("#top-schools-chart")
               .html('<div class="no-data-message">No data available for this category</div>')                
               .style("overflow-y", "hidden");
             return;
+        }else{
+            d3.select("#top-schools-chart")
+            .html('')                
+            .style("overflow-y", "hidden");
         }
 
         const chartHeight = data.length * barHeight;
