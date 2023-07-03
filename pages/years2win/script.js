@@ -17,7 +17,7 @@ function drawYears2Win() {
       // Define color scale for Nobel categories
       var colorScale = d3
         .scaleOrdinal()
-        .range(["#436475", "#debf7c", "#d1933b"]);
+        .range(["#436475", "#f5e490", "#d1933b"]);
 
       data.forEach(function (d) {
         d.prize_year = parseInt(d.prize_year);

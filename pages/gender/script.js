@@ -149,7 +149,7 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
             tooltip.style("opacity", 0);
           });
         })
-    }
+    
 
     // Create the area under the female line
     genderGroup.append("path")
@@ -189,6 +189,7 @@ d3.csv("../pages/gender/data.csv", processData).then(data => {
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .text("Number of Laureates");
+  }
 
   // Function to update the chart
   function updateChart(data, selectedCategory) {
