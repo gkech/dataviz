@@ -46,8 +46,21 @@
     ></script>
 
     <script src="https://www.unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>
+
+    <style>
+        .sticky {
+          position: fixed;
+          top: 0;
+          width: 100%
+        }
+
+        .sticky + .content {
+          padding-top: 102px;
+        }
+    </style>
+
   </head>
-  <body">
+  <body>
     <main></main>
     <div class="container">
       <div class="center-image mb-5 mt-5">
@@ -113,8 +126,8 @@
       <div class="container">
         <div class="text-center">
           <div class="d-flex justify-content-center">
-            <div id="filters">
-              <select id="category-filter">
+            <div id="filters" >
+              <select id="category-filter" >
                 <option value="all">All Nobel Prize categories</option>
                 <option value="Chemistry">Chemistry</option>
                 <option value="Physics">Physics</option>
@@ -318,8 +331,22 @@
     }
     
     window.addEventListener("scroll", reveal);
-  </script>
-    
+    </script>
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        var header = document.getElementById("filters");
+
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+   </script>
   </body>
 </html>
 
