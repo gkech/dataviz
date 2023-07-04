@@ -52,13 +52,14 @@ const drawChart = (data, selectedCategory) => {
             .attr("transform", `translate(${margin.left},${margin.top})`);
 
         
-        let barfill = "rgb(35, 166, 179)";
+        // let barfill = "#407b87";
+        let barfill = "#c19a6b";
         if (selectedCategory === 'Chemistry') {
             barfill = "#324c59";
         } else if (selectedCategory === 'Physics') {
             barfill = "#bc8435";
         } else if (selectedCategory === 'Medicine') {
-            barfill = "#ead49f";
+            barfill = "#ebd991";
         } else if (selectedCategory === 'Economics') {
             barfill = "#659ea3";
         } else if (selectedCategory === 'Peace') {

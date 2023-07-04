@@ -47,12 +47,24 @@ function drawYesNoPublications() {
       .select(".domain")
       .remove();
 
+
     // Build color scale
     const myColor = d3
       .scaleSequential()
       // https://github.com/d3/d3-scale-chromatic
       //.interpolator( d3.interpolateBlues)
-      .interpolator(d3.interpolate( '#29c3d3', '#030d0e'))
+      .interpolator((t) => {
+    const startColor = d3.hsl('#30d0f0'); // Convert starting color to HSL color space
+    const endColor = d3.hsl('#066375'); // Convert ending color to HSL color space
+    
+    // Adjust saturation and lightness values to make colors more dull
+    startColor.s *= 0.5; // Decrease saturation by half
+    endColor.s *= 0.6;
+    startColor.l *= 0.5 // Reduce lightness by 20%
+    endColor.l *= 0.1;
+    
+    return d3.interpolateRgb(startColor, endColor)(t); // Interpolate the modified colors
+  })
       .domain([1, 0]);
 
     // Create a tooltip
