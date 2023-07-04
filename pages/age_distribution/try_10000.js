@@ -104,11 +104,21 @@ function drawAgeDistribution() {
         .attr("x", xPosition)
         .attr("y", yPosition)
         .attr("text-anchor", "middle")
+        .style("font-size", "16px")
         .text(segmentValue);
+      g.append("text")
+        .attr("class", "text-label")
+        .attr("x", xPosition)
+        .attr("y", yPosition +15)
+        .attr("text-anchor", "middle")
+        .style("font-size", "12px")
+        .text("nobels");
     }
+      
 
     function handleMouseOut() {
       g.select(".value-label").remove();
+      g.select(".text-label").remove();
     }
 
     function updateViz(data, keys) {
@@ -163,6 +173,7 @@ function drawAgeDistribution() {
         .attr("fill", "#000")
         .attr("font-weight", "bold")
         .attr("text-anchor", "end")
+        .style("font-size", "12px")
         .text("Age Group");
 
       g.append("g")
@@ -170,11 +181,12 @@ function drawAgeDistribution() {
         .call(d3.axisLeft(y).ticks(null, "s"))
         .append("text")
         .attr("x", 2)
-        .attr("y", y(y.ticks().pop()) + 0.5)
+        .attr("y", y(y.ticks().pop()) -10)
         .attr("dy", "0.32em")
         .attr("fill", "#000")
         .attr("font-weight", "bold")
         .attr("text-anchor", "start")
+        .style("font-size", "12px")
         .text("Population");
 
       g.append("g")
