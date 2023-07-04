@@ -81,7 +81,7 @@ function visualizeMap(valueToFilter) {
 
     console.log(countrySize[826]);
 
-    r = [0, 5, 10, 30, 100];
+    r = [0, 5, 10, 40, 100];
     color_legend
       .domain(r)
       .range(["#cbdfe6", "#98c0cd", "#64a0b4", "#42788a", "#294b56"]);
